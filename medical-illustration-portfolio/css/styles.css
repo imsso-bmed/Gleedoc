@@ -1,3 +1,7 @@
+/* Contact 타이틀 중앙정렬 */
+#contact-title {
+  text-align: center;
+}
 /* styles.css - 메디컬 일러스트레이션 포트폴리오 사이트 스타일 */
 
 :root {
@@ -350,11 +354,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  max-width: 420px;
+  max-width: 600px;
   margin: 0 auto;
   background: #fff;
   border-radius: 1rem;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 2.5rem;
   box-shadow: 0 2px 12px rgba(42,111,151,0.07);
 }
 .contact-email {
