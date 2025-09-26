@@ -98,7 +98,6 @@
   <section id="contact" class="section contact-section">
     <div class="container">
   <h2 id="contact-title">Contact</h2>
-  <p style="text-align:center;margin-bottom:1em;">문의 메일: <a href="mailto:jsrrules@gmail.com">jsrrules@gmail.com</a></p>
       <form id="contact-form" class="contact-form" autocomplete="off">
   <label for="name" id="label-name">Name</label>
   <input type="text" id="name" name="name" required aria-required="true" />
@@ -113,5 +112,26 @@
 
   <script src="js/translations.js"></script>
   <script src="js/script.js"></script>
+</body>
+<!-- EmailJS SDK v4 (최신) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init('d46ohVwy1tezYXiG-');
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    if(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        emailjs.sendForm('gleedoc', 'template_n9cd31k', this)
+          .then(function() {
+            alert('메일이 성공적으로 전송되었습니다!');
+            form.reset();
+          }, function(error) {
+            alert('메일 전송에 실패했습니다. 다시 시도해 주세요.');
+          });
+      });
+    }
+  });
+</script>
 </body>
 </html>
