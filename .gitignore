@@ -15,8 +15,7 @@ build/
 .env.test.local
 .env.production.local
 
-# IDE and editor files
-.vscode/settings.json
+# IDE and editor files - keep workspace settings but allow local overrides
 .vscode/launch.json
 .vscode/extensions.json
 *.swp
