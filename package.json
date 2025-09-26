@@ -1,0 +1,30 @@
+{
+  "name": "gleedoc-website",
+  "version": "1.0.0",
+  "description": "Medical Illustration Studio based in Seoul, Korea",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --host=0.0.0.0 --port=3000",
+    "dev": "npx live-server --host=0.0.0.0 --port=3000 --watch=src",
+    "build": "echo 'Build process - copying files' && mkdir -p dist && cp -r src/* dist/",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "medical",
+    "illustration",
+    "studio",
+    "seoul",
+    "korea",
+    "healthcare",
+    "design"
+  ],
+  "author": "Gleedoc Medical Illustration Studio",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
