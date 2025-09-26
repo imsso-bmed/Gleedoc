@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="메디컬 일러스트레이션 스튜디오 포트폴리오">
   <meta name="keywords" content="Medical Illustration, Portfolio, Studio, Art, Healthcare">
-  <meta name="author" content="Medical Illustration Studio">
-  <title>Medical Illustration Studio Portfolio</title>
+  <meta name="author" content="Gleedoc">
+  <title>Gleedoc</title>
   <link rel="stylesheet" href="css/styles.css">
   <!-- SEO 및 favicon 등 추가 가능 -->
 </head>
@@ -14,16 +14,27 @@
   <!-- 상단 고정 내비게이션 바 -->
   <nav id="navbar" class="navbar" aria-label="메인 내비게이션">
     <div class="nav-container">
-      <div class="logo">MedIllust Studio</div>
-      <ul class="nav-links">
+  <div class="logo">Gleedoc</div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
         <li><a href="#works" class="nav-link" data-section="works">Our Works</a></li>
         <li><a href="#faq" class="nav-link" data-section="faq">FAQ</a></li>
         <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        <li class="mobile-lang-switcher">
+          <div class="lang-switcher" aria-label="언어 전환">
+            <button id="lang-ko-mobile" class="lang-btn" aria-pressed="false">Ko</button>
+            <button id="lang-en-mobile" class="lang-btn active" aria-pressed="true">En</button>
+          </div>
+        </li>
       </ul>
-      <div class="lang-switcher" aria-label="언어 전환">
-  <button id="lang-ko" class="lang-btn" aria-pressed="false">Ko</button>
-  <button id="lang-en" class="lang-btn active" aria-pressed="true">En</button>
+      <div class="lang-switcher desktop-lang-switcher" aria-label="언어 전환">
+        <button id="lang-ko" class="lang-btn" aria-pressed="false">Ko</button>
+        <button id="lang-en" class="lang-btn active" aria-pressed="true">En</button>
       </div>
     </div>
   </nav>
@@ -34,7 +45,7 @@
       <div class="about-hero">
         <img src="images/hero-placeholder.jpg" alt="스튜디오 대표 이미지" class="hero-img" />
         <div class="about-content">
-          <h1 id="about-title">Medical Illustration Studio</h1>
+          <h1 id="about-title">Gleedoc</h1>
           <p id="about-desc">Where medical knowledge meets artistic vision. We provide visual solutions for both patients and professionals.</p>
           <ul id="about-mission">
             <li>Accurate medical information delivery</li>

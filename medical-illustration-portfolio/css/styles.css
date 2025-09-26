@@ -64,9 +64,29 @@ body {
 .nav-link:hover, .nav-link.active {
   color: var(--primary);
 }
+/* 언어 전환 버튼 공통 */
 .lang-switcher {
   display: flex;
   gap: 0.5rem;
+}
+.desktop-lang-switcher {
+  display: flex;
+}
+.mobile-lang-switcher {
+  display: none;
+}
+@media (max-width: 900px) {
+  .desktop-lang-switcher {
+    display: none !important;
+  }
+  .mobile-lang-switcher {
+    display: block;
+    margin: 2rem 0 0 2rem;
+  }
+  .mobile-lang-switcher .lang-switcher {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
 }
 .lang-btn {
   background: none;
@@ -82,6 +102,58 @@ body {
   background: var(--primary);
   color: #fff;
   outline: none;
+}
+
+/* 햄버거 메뉴 토글 버튼 */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+.nav-toggle .bar {
+  width: 26px;
+  height: 3px;
+  background: var(--primary);
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    right: -100vw;
+    flex-direction: column;
+    background: #fff;
+    width: 220px;
+    height: calc(100vh - var(--nav-height));
+    box-shadow: -2px 0 16px rgba(42,111,151,0.08);
+    gap: 0;
+    padding: 2rem 0 0 0;
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    transition: right var(--transition), opacity var(--transition);
+  }
+  .nav-links.open {
+    right: 0;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-links li {
+    margin: 0 0 1.5rem 2rem;
+  }
 }
 
 /* 섹션 공통 */

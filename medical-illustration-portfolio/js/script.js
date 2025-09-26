@@ -152,18 +152,45 @@ function applyTranslations() {
 
 // 언어 전환 이벤트
 function setupLangSwitcher() {
-  document.getElementById('lang-ko').addEventListener('click', () => {
-    if (currentLang !== 'ko') {
-      currentLang = 'ko';
-      updateAll();
+  // 데스크톱
+  const koBtn = document.getElementById('lang-ko');
+  const enBtn = document.getElementById('lang-en');
+  // 모바일
+  const koBtnMobile = document.getElementById('lang-ko-mobile');
+  const enBtnMobile = document.getElementById('lang-en-mobile');
+  function updateActive() {
+    if (currentLang === 'ko') {
+      koBtn && koBtn.classList.add('active');
+      koBtn && koBtn.setAttribute('aria-pressed', 'true');
+      enBtn && enBtn.classList.remove('active');
+      enBtn && enBtn.setAttribute('aria-pressed', 'false');
+      koBtnMobile && koBtnMobile.classList.add('active');
+      koBtnMobile && koBtnMobile.setAttribute('aria-pressed', 'true');
+      enBtnMobile && enBtnMobile.classList.remove('active');
+      enBtnMobile && enBtnMobile.setAttribute('aria-pressed', 'false');
+    } else {
+      enBtn && enBtn.classList.add('active');
+      enBtn && enBtn.setAttribute('aria-pressed', 'true');
+      koBtn && koBtn.classList.remove('active');
+      koBtn && koBtn.setAttribute('aria-pressed', 'false');
+      enBtnMobile && enBtnMobile.classList.add('active');
+      enBtnMobile && enBtnMobile.setAttribute('aria-pressed', 'true');
+      koBtnMobile && koBtnMobile.classList.remove('active');
+      koBtnMobile && koBtnMobile.setAttribute('aria-pressed', 'false');
     }
-  });
-  document.getElementById('lang-en').addEventListener('click', () => {
-    if (currentLang !== 'en') {
-      currentLang = 'en';
+  }
+  function setLang(lang) {
+    if (currentLang !== lang) {
+      currentLang = lang;
       updateAll();
+      updateActive();
     }
-  });
+  }
+  koBtn && koBtn.addEventListener('click', () => setLang('ko'));
+  enBtn && enBtn.addEventListener('click', () => setLang('en'));
+  koBtnMobile && koBtnMobile.addEventListener('click', () => setLang('ko'));
+  enBtnMobile && enBtnMobile.addEventListener('click', () => setLang('en'));
+  updateActive();
 }
 
 // 내비게이션 스크롤
@@ -324,10 +351,30 @@ function updateAll() {
   renderFAQ();
 }
 
+// 햄버거 메뉴 토글
+function setupNavHamburger() {
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  navToggle.addEventListener('click', function() {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  // 메뉴 클릭 시 닫기 (모바일 UX)
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   applyTranslations();
   setupLangSwitcher();
   setupNavScroll();
+  setupNavHamburger();
   renderWorksFilter();
   renderWorksGallery();
   renderFAQ();
