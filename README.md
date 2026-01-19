@@ -137,12 +137,25 @@ git push origin feature/react-redesign
 
 ---
 
-## 📞 개발 팀
+## 🎨 Design Inspiration
 
-이 프로젝트는 **Gleedoc** 팀이 유지보수합니다.
+This project is inspired by the **Bold Editorial Studio style**:
+- Magnetic Cursor
+- Letter-by-letter Text Animation
+- Framer Motion-based Interactions
+
+However, all code and content have been completely rewritten for Gleedoc.
 
 ---
 
-## 💬 피드백
+## 📞 개발 팀 / Development Team
+
+이 프로젝트는 **Gleedoc** 팀이 유지보수합니다.
+This project is maintained by the **Gleedoc** team.
+
+---
+
+## 💬 피드백 / Feedback
 
 이 React 버전과 현재 바닐라 버전의 성능/UX를 비교한 후, 최종 방향을 결정하세요!
+Compare this React version with the current vanilla version in terms of performance and UX, then decide on the final direction!

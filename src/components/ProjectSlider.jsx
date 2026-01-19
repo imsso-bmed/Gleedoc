@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { projects } from './ProjectGrid';
 
-export default function ProjectSlider({ lang }) {
-  const images = [
-    "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop", 
-    "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop", 
-    "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop", 
-    "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop", 
-  ];
+export default function ProjectSlider() {
+  const images = useMemo(() => projects.map((p) => p.image), []);
 
   return (
     <section className="py-12 bg-white overflow-hidden cursor-scale">

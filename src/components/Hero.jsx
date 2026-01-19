@@ -5,12 +5,12 @@ const translations = {
   en: {
     title: "Medical Illustration",
     subtitle: "Studio",
-    desc: "Where medical knowledge meets artistic vision. We provide visual solutions for both patients and professionals."
+    desc: "We work with researchers to craft precise and beautiful medical illustrations, communicating clearly through collaboration."
   },
   ko: {
     title: "메디컬 일러스트레이션",
     subtitle: "스튜디오",
-    desc: "의학적 지식과 예술적 감각이 만나는 곳, 환자와 전문가 모두를 위한 시각적 솔루션을 제공합니다."
+    desc: "보다 정확하고 아름다운 메디컬일러스트를 위해\n연구자와 함께 고민하며 커뮤니케이션을 통해 작업합니다."
   }
 };
 
@@ -31,11 +31,13 @@ const containerAnim = {
 export default function Hero({ lang }) {
   const t = translations[lang];
   const title = t.title;
+  // 한글일 때 폰트 사이즈 줄임 (글자 수가 많아서)
+  const fontSize = lang === 'ko' ? 'text-[8vw]' : 'text-[12vw]';
 
   return (
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-white text-black pt-20">
       <div className="w-full px-4 text-center">
-        <h1 className="text-[12vw] leading-none font-bold tracking-tighter mb-4 select-none flex justify-center overflow-hidden py-[2vw] flex-wrap justify-center">
+        <h1 className={`${fontSize} leading-none font-bold tracking-tighter mb-4 select-none flex justify-center overflow-hidden py-[2vw] flex-wrap justify-center`}>
           <motion.div 
             variants={containerAnim}
             initial="initial"
@@ -54,7 +56,7 @@ export default function Hero({ lang }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="text-xl md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto whitespace-pre-line leading-[2.5]"
         >
           {t.desc}
         </motion.p>
