@@ -1,0 +1,56 @@
+/* App.css - Bold Editorial Studio 스타일 */
+
+.nav-enter {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 마그네틱 효과 */
+.magnetic {
+  position: relative;
+}
+
+/* 텍스트 애니메이션 */
+.stagger-text {
+  display: inline-block;
+}
+
+/* 카드 호버 */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 마퀴 슬라이더 */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* 포커스 표시 */
+:focus-visible {
+  outline: 2px solid #f9c74f;
+  outline-offset: 2px;
+}
