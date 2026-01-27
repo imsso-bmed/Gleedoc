@@ -54,15 +54,27 @@ export const medicalIllustrators = [
     nameKo: '김하은',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: '/images/team/artist-kim.jpg',
+    image: '/team/artist_haeun.jpg',
+    email: 'haeunhannah1230@gmail.com',
     bio: {
-      en: 'Specialist in surgical and anatomical illustrations with 8+ years of experience in medical visualization.',
-      ko: '8년 이상의 경험을 가진 수술 및 해부학 일러스트 전문가입니다.'
+      en: 'Medical Illustrator\nProviding visualization solutions that elevate the value of research. I specialize in translating complex medical information into clear visual language.',
+      ko: '연구의 가치를 높이는 시각화 솔루션을 제공하고,  복잡한 의학 정보를 명확한 시각 언어로 전달하는 메디컬 일러스트레이터 김하은입니다.'
     },
-    website: 'https://portfolio.example.com/haeun-kim',
-    experience: ['Surgical Illustrations', 'Anatomical Drawings', 'Educational Diagrams'],
-    interests: ['Medical Education', 'Surgical Techniques', 'Anatomy'],
-    projectIds: [1, 4]
+    website: '',
+    tool: [
+      'Adobe Programs (Illustrator, Photoshop, After Effect, Substance 3D Painter)',
+      'Procreate',
+      'Figma',
+      'MAYA',
+      'Zbrush'
+    ],
+    interests: [
+      'Surgical Illustration',
+      'Visual Abstract',
+      'Graphical Abstract',
+      'Medical Information Design'
+    ],
+    projectIds: []
   },
   {
     id: 'soyoung-lim',
@@ -71,30 +83,61 @@ export const medicalIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-lee.jpg',
+    email: 'syl942511@gmail.com',
     bio: {
-      en: 'Expert in 3D medical animation and interactive health visualizations for patient education.',
-      ko: '3D 메디컬 애니메이션과 환자 교육용 인터랙티브 시각화 전문가입니다.'
+      en: 'Majored in design at university and studied Biomedical Art in graduate school. I aim to deliver complex medical information in an accurate and easily understandable visual language.',
+      ko: '대학에서 디자인을 전공하고, 대학원에서 바이오메디컬아트를 공부했으며 복잡한 의학 정보를 정확하고 이해하기 쉬운 시각 언어로 전달하는 작업을 지향합니다.'
     },
-    website: 'https://portfolio.example.com/soyoung-lim',
-    experience: ['3D Animation', '3D Modeling', 'Motion Graphics'],
-    interests: ['3D Technology', 'Animation', 'Patient Education'],
-    projectIds: [2, 3]
+    website: ['https://imsso.tistory.com/', 'https://www.linkedin.com/in/soyounglim/'],
+    tool: [
+      '3D Slicer',
+      'Clipstudio Paint',
+      'Adobe Programs (Illustrator, Photoshop, InDesign, After Effects, Premiere)',
+      'Blender3D',
+      'three.js',
+      'React',
+      'VScode'
+    ],
+    interests: [
+      'Surgical Illustration',
+      'Web3D Visualization',
+      'Video Abstract',
+      'Graphical Abstract',
+      'Women’s Health Visualization'
+    ],
+    projectIds: []
   },
   {
-    id: 'jungin-choi',
-    name: 'Jungin Choi',
+    id: 'jeongin-choi',
+    name: 'Jeongin Choi',
     nameKo: '최정인',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: '/images/team/artist-park.jpg',
+    image: '/images/team/artist-choi.jpg',
+    email: 'jeongin9248@gmail.com',
+    website: '', // 포트폴리오 링크는 추후 업데이트 예정
     bio: {
-      en: 'Creative designer specializing in medical infographics and educational poster design.',
-      ko: '의학 인포그래픽과 교육용 포스터 디자인을 전문으로 하는 창의적인 디자이너입니다.'
+      en: 'I create medical illustrations tailored for surgery and research purposes. I value the balance between medical accuracy and visual completeness.',
+      ko: '수술 및 연구 목적에 맞춘 의학 일러스트를 제작합니다.\n의학적 정확성과 시각적 완성도 사이의 균형을 중요하게 생각합니다.'
     },
-    website: 'https://portfolio.example.com/jungin-choi',
-    experience: ['Infographic Design', 'Poster Design', 'Visual Communication'],
-    interests: ['Information Design', 'Typography', 'Visual Hierarchy'],
-    projectIds: [2]
+    tool: [
+      'Adobe Illustrator',
+      'Adobe Photoshop',
+      'Adobe Indesign',
+      'Adobe Aftereffect',
+      'Premiere Pro',
+      'Procreate',
+      'Blender3D',
+      '3D Slicer'
+    ],
+    interests: [
+      'Medical Illustration',
+      'Graphical Abstract',
+      'Human Anatomy',
+      'Medical Education',
+      '3D printing'
+    ],
+    projectIds: []
   },
   {
     id: 'hyejeong-hong',
@@ -103,14 +146,28 @@ export const medicalIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-choi.jpg',
+    email: 'hedgehogs@kakao.com',
     bio: {
-      en: 'Emerging talent in medical illustration with strong foundation in digital art and anatomical drawing.',
-      ko: '디지털 아트와 해부학 드로잉에 탄탄한 기초를 가진 신진 일러스트레이터입니다.'
+      en: 'I majored in Psychology and completed a Master\'s degree in Biomedical Art. I am interested in structuring complex information logically and visualizing it in an accessible way, with a particular focus on neuroscience and biopsychology.',
+      ko: '심리학 전공 후 바이오메디컬아트 석사를 마쳤습니다. 복잡한 정보를 논리적으로 구조화하고 이해하기 쉽게 시각화하는 작업을 선호하며, 뇌과학과 생물심리학 분야에 관심을 두고 있습니다.'
     },
-    website: 'https://portfolio.example.com/hyejeong-hong',
-    experience: ['Digital Illustration', 'Anatomy Drawing', 'Character Design'],
-    interests: ['Medical Art', 'Digital Media', 'Character Illustration'],
-    projectIds: [4]
+    website: '',
+    tool: [
+      'Adobe illustrator',
+      'Adobe photoshop',
+      'Adobe aftereffect',
+      'Blender',
+      'Procreate',
+      'Zbrush',
+      '3D Slicer'
+    ],
+    interests: [
+      'Neuroscience',
+      'Biopsychology',
+      'Neuroanatomy',
+      'Educational Material Visualization'
+    ],
+    projectIds: []
   }
 ];
 
@@ -129,6 +186,22 @@ export const alumniIllustrators = [
     website: '',
     experience: ['Surgical Illustrations', 'Patient Education'],
     interests: ['Medical Art', 'Education'],
+    projectIds: []
+  },
+  {
+    id: 'jeah-kim',
+    name: 'Jeah Kim',
+    nameKo: '김지아',
+    role: 'Medical Illustrator',
+    roleKo: '메디컬 일러스트레이터',
+    image: '/images/team/artist-alumni-5.jpg',
+    bio: {
+      en: 'Specialized in biomedical visualization and patient education materials.',
+      ko: '생의학 시각화와 환자 교육 자료에 특화된 전 메디컬 일러스트레이터입니다.'
+    },
+    website: '',
+    experience: ['Biomedical Visualization', 'Patient Education'],
+    interests: ['Visualization', 'Patient Communication'],
     projectIds: []
   },
   {

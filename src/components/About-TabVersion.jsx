@@ -236,16 +236,47 @@ export default function AboutTabVersion({ lang, onSelectArtist = () => {} }) {
 
                   {/* 경험 */}
                   <div>
-                    <h4 className="font-bold text-sm mb-2">{t.experience}</h4>
+                    <h4 className="font-bold text-sm mb-2">{isKo ? '사용 프로그램' : 'Tool'}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {artist.experience.map((exp, i) => (
-                        <span
-                          key={i}
-                          className="text-xs bg-neutral-100 px-2 py-1 rounded"
-                        >
-                          {exp}
-                        </span>
-                      ))}
+                      {(() => {
+                        if (!artist.tool) return null;
+                        // Adobe 관련 프로그램 분리
+                        const adobeKeywords = [
+                          'Adobe illustrator',
+                          'Adobe photoshop',
+                          'Adobe aftereffect',
+                          'Adobe After Effects',
+                          'Adobe Premiere',
+                          'Adobe Indesign',
+                          'Adobe substance 3D painter'
+                        ];
+                        const adobePrograms = artist.tool.filter(tool =>
+                          adobeKeywords.some(keyword => tool.toLowerCase().includes(keyword.toLowerCase()))
+                        );
+                        const otherTools = artist.tool.filter(tool =>
+                          !adobeKeywords.some(keyword => tool.toLowerCase().includes(keyword.toLowerCase()))
+                        );
+                        return (
+                          <>
+                            {adobePrograms.length > 0 && (
+                              <span className="text-xs bg-neutral-100 px-2 py-1 rounded">
+                                Adobe Programs ({adobePrograms.map(name => {
+                                  // 괄호와 Adobe 단어 제거
+                                  return name.replace(/Adobe\s?/i, '').replace(/Programs.*\(|\)/gi, '').trim();
+                                }).join(', ')})
+                              </span>
+                            )}
+                            {otherTools.map((tool, i) => (
+                              <span
+                                key={i}
+                                className="text-xs bg-neutral-100 px-2 py-1 rounded"
+                              >
+                                {tool}
+                              </span>
+                            ))}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
 
@@ -265,15 +296,37 @@ export default function AboutTabVersion({ lang, onSelectArtist = () => {} }) {
                   </div>
 
                   {/* 웹사이트 링크 */}
-                  <a
-                    href={artist.website}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium"
-                  >
-                    <Link size={14} />
-                    {t.visitWebsite}
-                  </a>
+                  {Array.isArray(artist.website)
+                    ? artist.website.map((url, idx) => {
+                        let label = t.visitWebsite;
+                        if (artist.id === 'soyoung-lim') {
+                          if (idx === 0) label = 'Blog';
+                          if (idx === 1) label = 'LinkedIn';
+                        }
+                        return (
+                          <a
+                            key={idx}
+                            href={url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium mr-2"
+                          >
+                            <Link size={14} />
+                            {label}
+                          </a>
+                        );
+                      })
+                    : (
+                        <a
+                          href={artist.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium"
+                        >
+                          <Link size={14} />
+                          {t.visitWebsite}
+                        </a>
+                      )}
 
                   <button
                     type="button"
