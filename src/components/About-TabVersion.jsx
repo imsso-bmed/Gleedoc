@@ -410,37 +410,8 @@ export default function AboutTabVersion({ lang, onSelectArtist = () => {} }) {
                     </p>
                   </div>
 
-                  <p className="text-sm text-neutral-600">
-                    {isKo ? artist.bio.ko : artist.bio.en}
-                  </p>
-
-                  <div>
-                    <h4 className="font-bold text-sm mb-2">{t.experience}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {artist.experience.map((exp, i) => (
-                        <span
-                          key={i}
-                          className="text-xs bg-neutral-100 px-2 py-1 rounded"
-                        >
-                          {exp}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-bold text-sm mb-2">{t.interests}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {artist.interests.map((interest, i) => (
-                        <span
-                          key={i}
-                          className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
-                        >
-                          {interest}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  {/* bio와 interests는 alumni에서 제거됨. 이름/역할/이미지/경험만 표시 */}
+                  {/* 필요시 추가 정보는 아래에 구현 */}
                 </div>
               </motion.div>
             ))}

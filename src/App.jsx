@@ -24,9 +24,10 @@ function App() {
     }
   };
 
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white cursor-none">
-      <Cursor />
+    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white cursor-none w-full overflow-x-hidden">
+      {!isMobile && <Cursor />}
       <Header lang={lang} setLang={setLang} />
       <main>
         <Hero lang={lang} />

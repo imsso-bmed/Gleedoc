@@ -117,7 +117,7 @@ export const medicalIllustrators = [
     nameKo: '최정인',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-      // image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769521293/profile_jeongin_l5xlol.png',
+    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769521293/profile_jeongin_l5xlol.png',
     email: 'jeongin9248@gmail.com',
     website: '', // 포트폴리오 링크는 추후 업데이트 예정
     bio: {
@@ -149,7 +149,7 @@ export const medicalIllustrators = [
     nameKo: '홍혜정',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-      // image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769520787/profile_hyejeong2_hjioor.png',
+      image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769569339/profile_hyejeong2_odoq4p.png',
     email: 'hedgehogs@kakao.com',
     bio: {
       en: 'I majored in Psychology and completed a Master\'s degree in Biomedical Art. I am interested in structuring complex information logically and visualizing it in an accessible way, with a particular focus on neuroscience and biopsychology.',
@@ -181,13 +181,8 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-alumni-1.jpg',
-    bio: {
-      en: 'Former medical illustrator with experience across surgical and educational visuals.',
-      ko: '수술 및 교육용 비주얼 작업을 수행했던 전 메디컬 일러스트레이터입니다.'
-    },
     website: '',
     experience: ['Surgical Illustrations', 'Patient Education'],
-    interests: ['Medical Art', 'Education'],
     projectIds: []
   },
   {
@@ -197,13 +192,8 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-alumni-5.jpg',
-    bio: {
-      en: 'Specialized in biomedical visualization and patient education materials.',
-      ko: '생의학 시각화와 환자 교육 자료에 특화된 전 메디컬 일러스트레이터입니다.'
-    },
     website: '',
     experience: ['Biomedical Visualization', 'Patient Education'],
-    interests: ['Visualization', 'Patient Communication'],
     projectIds: []
   },
   {
@@ -213,13 +203,8 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-alumni-2.jpg',
-    bio: {
-      en: 'Focused on 3D and motion graphics for medical communication.',
-      ko: '메디컬 커뮤니케이션을 위한 3D와 모션 그래픽에 집중했습니다.'
-    },
     website: '',
-    experience: ['3D Animation', 'Motion Graphics'],
-    interests: ['3D Technology', 'Animation'],
+    experience: ['Medical Illustration'],
     projectIds: []
   },
   {
@@ -229,13 +214,8 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-alumni-3.jpg',
-    bio: {
-      en: 'Experienced in infographic and editorial medical illustration.',
-      ko: '인포그래픽과 에디토리얼 메디컬 일러스트 경험을 보유한 전 구성원입니다.'
-    },
     website: '',
-    experience: ['Infographic Design', 'Editorial Illustration'],
-    interests: ['Information Design', 'Editorial'],
+    experience: ['Infographic Design', 'Medical Illustration', 'Surgical Illustration'],
     projectIds: []
   },
   {
@@ -245,13 +225,8 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-alumni-4.jpg',
-    bio: {
-      en: 'Background in anatomical drawing and educational materials.',
-      ko: '해부학 드로잉과 교육 자료 제작 경험을 가진 전 메디컬 일러스트레이터입니다.'
-    },
     website: '',
-    experience: ['Anatomy Drawing', 'Educational Materials'],
-    interests: ['Anatomy', 'Education'],
+    experience: ['Medical Illustration'],
     projectIds: []
   }
 ];
