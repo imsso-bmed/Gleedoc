@@ -21,8 +21,9 @@ function WatermarkedImage({ src, alt, watermarkText }) {
       // Draw the original image
       ctx.drawImage(img, 0, 0);
 
-      // Set up watermark styling
-      ctx.font = 'bold 48px Arial';
+      // 동적 워터마크 폰트 크기 (이미지 너비의 8% 또는 최소 32px)
+      const fontSize = Math.max(Math.floor(img.width * 0.08), 32);
+      ctx.font = `bold ${fontSize}px Arial`;
       ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
       ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
       ctx.lineWidth = 2;
@@ -47,204 +48,351 @@ function WatermarkedImage({ src, alt, watermarkText }) {
   return (
     <canvas
       ref={canvasRef}
-      className="w-full h-full object-cover"
+      className="w-full h-full object-contain"
       style={{ display: imageLoaded ? 'block' : 'none' }}
     />
   );
 }
 
 export const projects = [
-  { 
-    title: "Heart Surgery Illustration", 
-    titleKo: "심장 수술 일러스트",
-    category: "Surgical Illustration", 
-    categoryKo: "수술 일러스트",
-    tags: ["surgical-illustration"],
-    artists: ["haeun-kim", "jinsoo-rhu"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160575-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1631217314831-6975d3a4a2ff?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584308666744-24d5f400f6f5?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: null,
-    descEn: "An illustration visualizing a heart surgery procedure for patient education.",
-    descKo: "환자 교육을 위해 심장 수술 과정을 시각화한 일러스트입니다.",
-    client: "Seoul National University Hospital",
-  },
-  { 
-    title: "Orthopedic Poster", 
-    titleKo: "정형외과 포스터",
-    category: "Scientific Illustration", 
-    categoryKo: "과학 일러스트",
-    tags: ["scientific-illustration", "infographic"],
-    artists: ["soyoung-lim", "hyejeong-hong"],
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1576091160575-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1576091160575-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1631217314831-6975d3a4a2ff?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: null,
-    descEn: "Infographic poster explaining orthopedic conditions and treatments.",
-    descKo: "정형외과 질환과 치료를 설명하는 인포그래픽 포스터입니다.",
-    client: "Orthopedic Association",
-  },
-  { 
-    title: "3D Kidney Animation", 
-    titleKo: "3D 신장 애니메이션",
-    category: "2D/3D Animation", 
-    categoryKo: "2D/3D 애니메이션",
-    tags: ["2d-3d-animation"],
-    artists: ["hyejeong-hong", "jinsoo-rhu", "jehoon-oh"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160575-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    descEn: "3D animation showcasing kidney structure and function.",
-    descKo: "신장의 구조와 기능을 보여주는 3D 애니메이션입니다.",
-    client: "Medical Media",
-  },
-  { 
-    title: "Anatomy Textbook", 
-    titleKo: "해부학 교재 일러스트",
-    category: "Anatomical Illustration", 
-    categoryKo: "해부학 일러스트",
-    tags: ["editorial"],
-    artists: ["haeun-kim", "jungin-choi", "nari-kim"],
-    year: "2022",
-    image: "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160575-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1631217314831-6975d3a4a2ff?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584308666744-24d5f400f6f5?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: null,
-    descEn: "Detailed anatomical illustrations for a medical textbook.",
-    descKo: "의학 교재를 위한 상세 해부학 일러스트입니다.",
-    client: "Medical Publishing House",
-  },
+                                {
+                                  id: 136,
+                                  title: "TICGLE",
+                                  titleKo: "TICGLE",
+                                  category: ["Surgical Illustration", "Figure"],
+                                  categoryKo: ["수술 일러스트", "Figure"],
+                                  tags: ["surgical-illustration", "figure"],
+                                  artists: ["jinsoo-rhu"],
+                                  year: "2020.01",
+                                  image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536885/136-1_gkwcvi.jpg",
+                                  images: [
+                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536885/136-1_gkwcvi.jpg",
+                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536885/136-2_nqvszm.png",
+                                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536884/136-3_fz6bui.png"
+                                  ],
+                                  video: null,
+                                  descKo: "TICGLE 수술 일러스트 및 Figure.",
+                                  descEn: "Transplant Surgery: TICGLE.",
+                                  client: "삼성서울병원 이식외과",
+                                  clientEn: "Samsung Medical Center, Transplant Surgery",
+                                },
+                              {
+                                id: 134,
+                                title: "Nephron Exosome",
+                                titleKo: "Nephron Exosome",
+                                category: "Figure",
+                                categoryKo: "Figure",
+                                tags: ["medical-illustration"],
+                                artists: ["jinsoo-rhu"],
+                                year: "2020.01",
+                                image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536684/134-1_b2aiey.jpg",
+                                images: [
+                                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536684/134-1_b2aiey.jpg",
+                                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536682/134-2_ccfdcn.png"
+                                ],
+                                video: null,
+                                descKo: "서울순천향 신장내과 의뢰, Nephron exosome 논문 Figure.",
+                                descEn: "Figure of nephron exosome for Soonchunhyang University Seoul Hospital, Nephrology.",
+                                client: "서울순천향 신장내과",
+                                clientEn: "Soonchunhyang University Seoul Hospital, Nephrology",
+                              },
+                            {
+                              id: 133,
+                              title: "Arachnoid Trabeculae",
+                              titleKo: "Arachnoid Trabeculae",
+                              category: "Medical Illustration",
+                              categoryKo: "메디컬 일러스트",
+                              tags: ["medical-illustration"],
+                              artists: ["jinsoo-rhu"],
+                              year: "2020.01",
+                              image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536492/133_wpgm7c.jpg",
+                              images: [
+                                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536492/133_wpgm7c.jpg"
+                              ],
+                              video: null,
+                              descKo: "한양대 신경외과 의뢰, Arachnoid trabeculae 메디컬 일러스트.",
+                              descEn: "Medical illustration of arachnoid trabeculae for Hanyang University Neurosurgery.",
+                              client: "한양대 신경외과",
+                              clientEn: "Hanyang University Neurosurgery",
+                            },
+                          {
+                            id: 106,
+                            title: "HBP-Ampullectomy, PJ anastomosis",
+                            titleKo: "HBP-Ampullectomy, PJ anastomosis",
+                            category: "Surgical Illustration",
+                            categoryKo: "수술 일러스트",
+                            tags: ["surgical-illustration"],
+                            artists: ["jinsoo-rhu"],
+                            year: "2020.06",
+                            image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536259/106-1_uh6e20.jpg",
+                            images: [
+                              "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536259/106-1_uh6e20.jpg",
+                              "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536259/106-2_qtesvz.jpg"
+                            ],
+                            video: null,
+                            descKo: "한양대 의뢰, HBP-Ampullectomy, PJ anastomosis 수술 일러스트.",
+                            descEn: "Surgical illustration for Hanyang University: HBP-Ampullectomy, PJ anastomosis.",
+                            client: "한양대",
+                            clientEn: "Hanyang University",
+                          },
+                        {
+                          id: 9,
+                          title: "Laparo Esophagojejunstomy",
+                          titleKo: "Laparo Esophagojejunstomy",
+                          category: ["Surgical Illustration", "Figure"],
+                          categoryKo: ["수술 일러스트", "Figure"],
+                          tags: ["surgical-illustration", "figure"],
+                          artists: ["miseung-kim"],
+                          year: "2021.09",
+                          image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-1_ujdkv9.jpg",
+                          images: [
+                            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-1_ujdkv9.jpg",
+                            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-2_cmxiad.jpg",
+                            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769536066/9-3_tksc0w.jpg"
+                          ],
+                          video: null,
+                          descKo: "서울대 외과 의뢰, 논문용 수술 일러스트. 논문명: Postoperative morbidity and quality of life between totally laparoscopic total gastrectomy and laparoscopy-assisted total gastrectomy: A propensity-score matched analysis",
+                          descEn: "Surgical illustration for Seoul National University Department of Surgery, for the paper: Postoperative morbidity and quality of life between totally laparoscopic total gastrectomy and laparoscopy-assisted total gastrectomy: A propensity-score matched analysis.",
+                          client: "서울대 외과",
+                          clientEn: "Seoul National University Department of Surgery",
+                          paperTitle: "Postoperative morbidity and quality of life between totally laparoscopic total gastrectomy and laparoscopy-assisted total gastrectomy: A propensity-score matched analysis",
+                          doi: "https://doi.org/10.1186/s12885-021-08744-1",
+                        },
+                      {
+                        id: 20,
+                        title: "Aortic Surgery",
+                        titleKo: "대동맥수술",
+                        category: "Medical Illustration",
+                        categoryKo: "의학 일러스트",
+                        tags: ["medical-illustration"],
+                        artists: ["miseung-kim"],
+                        year: "2020.08",
+                        image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769535643/20_r3ty2j.jpg",
+                        images: [
+                          "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769535643/20_r3ty2j.jpg"
+                        ],
+                        video: null,
+                        descKo: "대동맥수술 메디컬 일러스트.",
+                        descEn: "Medical illustration of aortic surgery.",
+                        client: "양산부대 흉부외과",
+                        clientEn: "Yangsan Armed Forces Thoracic Surgery",
+                      },
+                    {
+                      id: 151,
+                      title: "Thyroid nodule - C6 axial",
+                      titleKo: "Thyroid nodule - C6 axial",
+                      category: "Medical Illustration",
+                      categoryKo: "의학 일러스트",
+                      tags: ["medical-illustration"],
+                      artists: ["soyoung-lim"],
+                      year: "2023.03",
+                      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/151_vt4ym3.jpg",
+                      images: [
+                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/151_vt4ym3.jpg"
+                      ],
+                      video: null,
+                      descKo: "갑상선 결절(C6 축면) 메디컬 일러스트.",
+                      descEn: "Medical illustration of a thyroid nodule (C6 axial view).",
+                      client: null,
+                      clientEn: null,
+                    },
+                  {
+                    id: 178,
+                    title: "Hanyang University Surgery Logo Design",
+                    titleKo: "한양대외과 로고디자인",
+                    category: "Logo Design",
+                    categoryKo: "로고 디자인",
+                    tags: ["logo-design"],
+                    artists: ["soyoung-lim"],
+                    year: "2022.08",
+                    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-1_i4vdny.jpg",
+                    images: [
+                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-1_i4vdny.jpg",
+                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-2_kfmyed.jpg",
+                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534917/178-3_uhcccj.jpg"
+                    ],
+                    video: null,
+                    descKo: "한양대를 상징하는 사자, 의학을 상징하는 아스클레피오스의 지팡이(rod of Asclepius), 그리고 외과를 상징하는 메스를 조합하여 디자인한 한양대학교 외과 로고입니다.",
+                    descEn: "This logo for Hanyang University Department of Surgery combines a lion symbolizing Hanyang University, the rod of Asclepius representing medicine, and a scalpel to signify surgery.",
+                    client: "한양대학교 외과",
+                    clientEn: "Hanyang University Department of Surgery",
+                  },
+                {
+                  id: 182,
+                  title: "Cardiac ultrasound exam figure",
+                  titleKo: "심장 초음파 검사 figure",
+                  category: "Figure",
+                  categoryKo: "Figure",
+                  tags: ["figure"],
+                  artists: ["jeongin-choi"],
+                  year: "2023.10",
+                  image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534176/182_km0ca5.jpg",
+                  images: [
+                    "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769534176/182_km0ca5.jpg"
+                  ],
+                  video: null,
+                  descKo: "심장초음파검사를 시행하게 되면 visual analysis (qualitatative analysis)와 manual measurement를 통한 평가 (quantitative analysis)를 모두 시행하여햐하는데 초음파 검사 한건을 하기 위해서는 이 두 종류의 평가를 십여변, 많게는 수십번 반복해야한다는 것을 강조하기 위함을 화살 표를 추가하여 보여준다.",
+                  descEn: "When performing a cardiac ultrasound, both visual analysis (qualitative analysis) and manual measurement-based evaluation (quantitative analysis) must be conducted. To emphasize this point, arrows are added in the illustration to show that performing a single ultrasound exam requires repeating these two types of evaluations multiple times, sometimes tens or even dozens of times. This visual representation helps highlight the repetitive nature of the process in a clear and intuitive way.",
+                  client: "분당서울대학교병원 순환기내과 윤연이 교수",
+                  clientEn: "Prof. Yeon Yi Yoon, Division of Cardiology, Seoul National University Bundang Hospital",
+                },
+              {
+                id: 184,
+                title: "ASDN kidney figure",
+                titleKo: "ASDN kidney figure",
+                category: ["Figure", "Graphical Abstract"],
+                categoryKo: ["Figure", "Graphical Abstract"],
+                tags: ["figure", "graphical-abstract"],
+                artists: ["jeongin-choi"],
+                year: "2023.10",
+                image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532954/184-1_jzwpih.jpg",
+                images: [
+                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532954/184-1_jzwpih.jpg",
+                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532956/184-2_uvjngq.jpg",
+                  "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532956/184-3_jotvi5.jpg"
+                ],
+                video: null,
+                descKo: "저나트륨 고칼륨 식사가 고혈압과 심혈관계 질환에 미치는 영향에 대한 일러스트.",
+                descEn: "A figure that summarizes the current understanding of renal handling physiology of potassium (K+) and provides an integrated perspective on the renal response to potassium depletion caused by dietary potassium (K+) restriction.",
+                client: "한양대학교 김병식 교수",
+                clientEn: "Prof. Byung Sik Kim, Hanyang University",
+              },
+            {
+              id: 191,
+              title: "Infiltrative Lesions of the Thyroid: Benign vs. Malignant",
+              titleKo: "갑상샘 침윤성 병변: 양성 대 악성",
+              category: "Figure",
+              categoryKo: "Figure",
+              tags: ["figure"],
+              artists: ["hyejeong-hong"],
+              year: "2024.02",
+              image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532505/191_enfhre.jpg",
+              images: [
+                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532505/191_enfhre.jpg"
+              ],
+              video: null,
+              descKo: "갑상선 내부에 침윤성 병변이 나타난 양상(좌: 양성, 우: 악성)을 비교한 Figure 일러스트. 좌측은 benign하게 thyroid 내부에 infiltration lesion이 보이고, 우측은 malignancy스럽게(무시무시하게) infiltration lesion이 표현됨.",
+              descEn: "A figure illustration comparing infiltrative lesions of the thyroid: the left shows a benign-appearing infiltration within the thyroid, while the right depicts a malignant, aggressive infiltration pattern.",
+              client: "고려대학교 안암병원 영상의학과 조교수 신재호",
+              clientEn: "Prof. Jaeho Shin, Department of Radiology, Korea University Anam Hospital",
+            },
+          {
+            id: 194,
+            title: "Duodenoduodenostomy for duodenal obstruction",
+            titleKo: "십이지장 폐쇄에 따른 십이지장 문합술",
+            category: "Surgical Illustration",
+            categoryKo: "수술 일러스트",
+            tags: ["surgical-illustration"],
+            artists: ["haeun-kim"],
+            year: "2025.03",
+            image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png",
+            images: [
+              "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png"
+            ],
+            video: null,
+            descKo: "십이지장 폐쇄 위치에 따른 십이지장 문합술 방법에 대해 2D 일러스트로 표현하였다.",
+            descEn: "2D illustrations of duodenoduodenostomy techniques according to the site of duodenal obstruction.",
+            client: "삼성서울병원 이상훈 교수",
+            clientEn: "Prof. Sanghoon Lee, Samsung Medical Center",
+          },
+        {
+          id: 195,
+          title: "Anatomical Layers of the Temporalis Muscle Fascia in a Postauricular Surgical View",
+          titleKo: "이비인후과 관련 수술",
+          category: "Surgical Illustration",
+          categoryKo: "수술 일러스트",
+          tags: ["surgical-illustration"],
+          artists: ["haeun-kim"],
+          year: "2025.08",
+          image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769531645/195_xvbg3k.png",
+          images: [
+            "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769531645/195_xvbg3k.png"
+          ],
+          video: null,
+          descKo: "귀 뒤쪽으로 접근해서 Temporalis muscle 의 fascia 를 떼는 그림이다. 가장 superficial 하게 superficial temporalis fascia 가 있고, 그 아래에 deep temporalis fascia 가 있고, 마지막 층에 temporalis muscle 이 있는 구조적 특징을 구분하기 쉽게 표현한 2D 일러스트이다.",
+          descEn: "A 2D illustration depicting the harvesting of temporalis muscle fascia via a postauricular approach. The anatomical layers—including the superficial temporal fascia, the underlying deep temporal fascia, and the temporalis muscle—are clearly delineated for ease of structural identification.",
+          client: null,
+          clientEn: null,
+        },
+      {
+        id: 186,
+        title: "Minimally Invasive Cardiac Surgery",
+        titleKo: "Minimally Invasive Cardiac Surgery",
+        category: "Surgical Illustration",
+        categoryKo: "수술 일러스트",
+        tags: ["surgical-illustration"],
+        artists: ["jeongin-choi"],
+        year: "2023.05",
+        image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530897/186_izdtqk.jpg",
+        images: [
+          "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530897/186_izdtqk.jpg"
+        ],
+        video: null,
+        descEn: "An illustration showing the incision for heart surgery and the scope being inserted.",
+        descKo: "심장수술의 인시젼과 스콥이 들어간 그림.",
+        client: "용인세브란스 흉부외과 조교수 김완기",
+        clientEn: "Yongin Severance Thoracic Surgery, Prof. Wanki Kim",
+      },
+    {
+      id: 123,
+      title: "L-RPS",
+      titleKo: "L-RPS",
+      category: "Figure",
+      categoryKo: "Figure",
+      tags: ["figure"],
+      artists: ["jinsoo-rhu"],
+      year: "2020.01",
+      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530053/123-1_ap34h0.png",
+      images: [
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530053/123-1_ap34h0.png",
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530051/123-2_khqgq5.png",
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769530050/123-3_mc3q8q.png"
+      ],
+      video: null,
+      descEn: "Figure illustration for Samsung Medical Center.",
+      descKo: "삼성서울병원 의뢰 Figure 일러스트.",
+      client: "삼성서울병원",
+      clientEn: "Samsung Medical Center",
+    },
   {
-    title: "Figure Design",
-    titleKo: "논문 Figure 디자인",
-    category: "Figure",
-    categoryKo: "Figure",
-    tags: ["figure"],
-    artists: ["haeun-kim", "soyoung-lim"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
+    id: 12,
+    title: "소아과학회-소아알러지반응",
+    titleKo: "소아과학회-소아알러지반응",
+    category: ["Medical Illustration", "Infographic"],
+    categoryKo: ["의학 일러스트","인포그래픽"],
+    tags: ["medical-illustration", "infographic"],
+    artists: ["miseung-kim"],
+    year: "2020.02",
+    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769526582/12_hqurzd.jpg",
     images: [
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop"
+      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769526582/12_hqurzd.jpg"
     ],
     video: null,
-    descEn: "High-quality research figure for scientific publications.",
-    descKo: "학술지 게재를 위한 고품질 연구 figure입니다.",
-    client: "Nature Research",
+    descEn: "Pediatric allergy reaction illustration for the Pediatric Society.",
+    descKo: "소아과학회 의뢰 소아 알러지 반응 일러스트.",
+    client: "소아과학회",
+    clientEn: "The Korean Pediatric Society",
   },
-  {
-    title: "Motion Graphics Medical",
-    titleKo: "의료 모션 그래픽",
-    category: "2D/3D Animation",
-    categoryKo: "2D/3D 애니메이션",
-    tags: ["2d-3d-animation"],
-    artists: ["soyoung-lim", "jehoon-oh"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1631217314831-6975d3a4a2ff?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1631217314831-6975d3a4a2ff?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584308666744-24d5f400f6f5?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    descEn: "Dynamic motion graphics animation for medical education and marketing.",
-    descKo: "의료 교육 및 마케팅을 위한 동적 모션 그래픽 애니메이션입니다.",
-    client: "Medical Tech Startup",
-  },
-  {
-    title: "Surgical Diagram",
-    titleKo: "외과 수술 다이어그램",
-    category: "Surgical Illustration",
-    categoryKo: "수술 일러스트",
-    tags: ["surgical-illustration", "diagrams"],
-    artists: ["haeun-kim", "jungin-choi"],
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1584308666744-24d5f400f6f5?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1584308666744-24d5f400f6f5?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160575-2173dba999ef?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: null,
-    descEn: "Detailed surgical procedure diagram for medical training materials.",
-    descKo: "의료 교육 자료를 위한 상세 수술 절차 다이어그램입니다.",
-    client: "Medical Training Institute",
-  },
-  {
-    title: "Anatomical Poster",
-    titleKo: "해부학 포스터",
-    category: "Anatomical Illustration",
-    categoryKo: "해부학 일러스트",
-    tags: ["poster"],
-    artists: ["hyejeong-hong", "nari-kim"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1576091160686-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576091160797-112722121049?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: null,
-    descEn: "Educational anatomical poster for classroom and clinic display.",
-    descKo: "강의실 및 클리닉 전시용 교육 해부학 포스터입니다.",
-    client: "Hospital Education Department",
-  },
-  {
-    title: "Medical Brand Logo",
-    titleKo: "의료 브랜드 로고",
-    category: "Logo Design",
-    categoryKo: "로고 디자인",
-    tags: ["logo-design"],
-    artists: ["soyoung-lim", "hyejeong-hong"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1579154204601-01d6cc01a125?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1631217314831-6975d3a4a2ff?q=80&w=2670&auto=format&fit=crop"
-    ],
-    video: null,
-    descEn: "Custom logo design for medical and healthcare organizations.",
-    descKo: "의료 및 헬스케어 조직을 위한 맞춤 로고 디자인입니다.",
-    client: "Clinic Branding Group",
-  }
+   {
+     id: 155,
+     title: "Screening Flowchart",
+     titleKo: "스크리닝 플로우차트",
+     category: ["Figure", "Flowchart", "Graphical Abstract"],
+     categoryKo: ["Figure",  "플로우차트", "Graphical Abstract"],
+     tags: ["figure", "flowchart", "graphical-abstract"],
+     artists: ["soyoung-lim"],
+     year: "2022.10",
+     image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769524181/155_gwlo4b.jpg",
+     images: [
+       "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769524181/155_gwlo4b.jpg"
+     ],
+     video: null,
+     descEn: "work period: Oct 31 – Dec 16 (about 1.5 months).",
+     descKo: "작업기간: 10월 31일 – 12월 16일 (약 1.5개월)",
+     client: "분당서울대병원",
+     clientEn: "Seoul National University Bundang Hospital",
+   },
+   
 ];
  
 export default function ProjectGrid({ lang, artistFilter = null }) {
@@ -287,6 +435,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
       '2d-3d-animation': '2D/3D Animation',
       'figure': 'Figure',
       'logo-design': 'Logo Design',
+      'flowchart': 'Flowchart',
       poster: 'Poster',
       infographic: 'Infographic',
       diagrams: 'Diagrams',
@@ -299,6 +448,9 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
       '2d-3d-animation': '2D/3D 애니메이션',
       'figure': 'Figure',
       'logo-design': '로고 디자인',
+      'medical-illustration': '메디컬 일러스트',
+      'graphical-abstract': 'Graphical Abstract',
+      'flowchart': '플로우차트',
       poster: '포스터',
       infographic: '인포그래픽',
       diagrams: '다이어그램',
@@ -306,8 +458,17 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
     }
   }), []);
 
+  // 전체보기일 때만 랜덤 정렬
+  function shuffle(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
   const filteredByTag = activeTag === 'all'
-    ? projects
+    ? shuffle(projects)
     : projects.filter((p) => p.tags.includes(activeTag));
 
   const alumniIds = useMemo(() => alumniIllustrators.map((a) => a.id), []);
@@ -319,7 +480,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
       : filteredByTag;
 
   const artistOptions = useMemo(() => {
-    const list = [ceo, ...artists];
+    const list = [ceo, ...artists, ...alumniIllustrators];
     return [...list].sort((a, b) =>
       isKo
         ? a.nameKo.localeCompare(b.nameKo, 'ko')
@@ -339,19 +500,28 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {['all', ...Array.from(new Set(projects.flatMap((p) => p.tags)))].map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                className={`px-3 py-2 rounded-full text-sm border transition-colors ${
-                  activeTag === tag
-                    ? 'bg-black text-white border-black'
-                    : 'bg-white text-black border-neutral-200 hover:border-black'
-                }`}
-              >
-                {tagLabels[isKo ? 'ko' : 'en'][tag] || tag}
-              </button>
-            ))}
+            {['all', ...Array.from(new Set(projects.flatMap((p) => p.tags)))].map((tag) => {
+              // dash(-)를 띄어쓰기로, 각 단어 첫 글자 대문자로 변환
+              const formatTag = (str) => str === 'all'
+                ? (isKo ? '전체' : 'All')
+                : (isKo
+                  ? (tagLabels.ko[tag] || tag)
+                  : (tagLabels.en[tag] || str.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()))
+                );
+              return (
+                <button
+                  key={tag}
+                  onClick={() => setActiveTag(tag)}
+                  className={`px-3 py-2 rounded-full text-sm border transition-colors ${
+                    activeTag === tag
+                      ? 'bg-black text-white border-black'
+                      : 'bg-white text-black border-neutral-200 hover:border-black'
+                  }`}
+                >
+                  {formatTag(tag)}
+                </button>
+              );
+            })}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -377,14 +547,14 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
               >
                 Alumni
               </button>
-              {artistOptions.map((artist) => (
+              {[ceo, ...artists].map((artist) => (
                 <button
                   key={artist.id}
                   onClick={() => setActiveArtist(artist.id)}
                   className={`px-3 py-2 rounded-full text-sm border transition-colors ${
                     activeArtist === artist.id
-                      ? 'bg-black text-white border-black'
-                      : 'bg-white text-black border-neutral-200 hover:border-black'
+                      ? 'bg-primary text-white border-primary'
+                      : 'bg-white text-black border-neutral-200 hover:border-primary'
                   }`}
                 >
                   {isKo ? artist.nameKo : artist.name}
@@ -406,10 +576,16 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
               onClick={() => setSelected(project)}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100 rounded-sm mb-6">
-                <img 
-                  src={project.image} 
+                <img
+                  src={
+                    project.image.includes('cloudinary.com')
+                      ? project.image.replace('/upload/', '/upload/q_auto,f_auto,w_600,h_450,c_limit/')
+                      : project.image
+                  }
                   alt={isKo ? project.titleKo : project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 bg-white"
+                  loading="lazy"
+                  style={{ objectFit: 'contain' }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                 <div className="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
@@ -423,7 +599,11 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                     {isKo ? project.titleKo : project.title}
                   </h3>
                   <p className="text-neutral-500">
-                    {isKo ? project.categoryKo : project.category}
+                    {(() => {
+                      const cat = isKo ? project.categoryKo : project.category;
+                      if (Array.isArray(cat)) return cat.join(' / ');
+                      return cat;
+                    })()}
                   </p>
                 </div>
                 <span className="font-mono text-sm text-neutral-400">{project.year}</span>
@@ -443,7 +623,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
             onClick={closeModal}
           >
             <motion.div
-              className="bg-white text-black max-w-6xl w-[95vw] md:w-[90vw] rounded-2xl shadow-2xl overflow-hidden relative"
+              className="bg-white text-black max-w-3xl w-[98vw] md:w-[70vw] max-h-[95vh] overflow-y-auto scrollbar-none rounded-2xl shadow-2xl relative"
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
@@ -457,9 +637,9 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
               >
                 <X size={22} />
               </button>
-
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-full min-h-[500px] md:min-h-[700px] bg-neutral-100 flex items-center justify-center overflow-hidden">
+              <div className="relative h-auto min-h-0 bg-neutral-100 flex flex-row items-center justify-center overflow-hidden gap-2">
+                {/* 이미지 영역 */}
+                <div className="flex-shrink-0 flex items-center justify-center bg-white p-0 max-w-[60vw] max-h-[60vh]">
                   {selected.video ? (
                     <iframe
                       width="100%"
@@ -472,85 +652,117 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                       className="w-full h-full"
                     />
                   ) : selected.images && selected.images.length > 0 ? (
-                    <div className="relative w-full h-full">
+                    <div className="relative max-w-[60vw] max-h-[60vh] flex items-center justify-center">
                       <WatermarkedImage
-                        src={selected.images[imageIndex]}
+                        src={selected.images[imageIndex] && selected.images[imageIndex].includes('cloudinary.com')
+                          ? selected.images[imageIndex].replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
+                          : selected.images[imageIndex]}
                         alt={`${isKo ? selected.titleKo : selected.title} ${imageIndex + 1}`}
                         watermarkText="© Gleedoc Studio"
+                        className="object-contain max-h-[60vh] max-w-[60vw] w-auto mx-auto"
+                        style={{objectFit:'contain',maxWidth:'60vw',maxHeight:'60vh'}}
                       />
-                      {selected.images.length > 1 && (
-                        <>
-                          <button
-                            onClick={handlePrevImage}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-10"
-                            aria-label="Previous image"
-                          >
-                            <ChevronLeft size={20} />
-                          </button>
-                          <button
-                            onClick={handleNextImage}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-10"
-                            aria-label="Next image"
-                          >
-                            <ChevronRight size={20} />
-                          </button>
-                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                      {/* dot indicator 항상 표시 */}
+                      <>
+                        {selected.images.length > 1 && (
+                          <>
+                            <button
+                              onClick={handlePrevImage}
+                              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-10"
+                              aria-label="Previous image"
+                            >
+                              <ChevronLeft size={20} />
+                            </button>
+                            <button
+                              onClick={handleNextImage}
+                              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-10"
+                              aria-label="Next image"
+                            >
+                              <ChevronRight size={20} />
+                            </button>
+                          </>
+                        )}
+                        {selected.images.length > 1 && (
+                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
                             {selected.images.map((_, i) => (
                               <button
                                 key={i}
                                 onClick={() => setImageIndex(i)}
-                                className={`w-2 h-2 rounded-full transition-colors ${
-                                  i === imageIndex ? 'bg-white' : 'bg-white/50'
+                                className={`w-3 h-3 rounded-full border-2 border-white shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lime-400 ${
+                                  i === imageIndex
+                                    ? 'bg-lime-400 scale-110 drop-shadow-lg'
+                                    : 'bg-white/70 opacity-80'
                                 }`}
+                                style={{ outline: '2px solid rgba(0,0,0,0.18)' }}
+                                aria-label={`Go to image ${i + 1}`}
                               />
                             ))}
                           </div>
-                        </>
-                      )}
+                        )}
+                      </>
                     </div>
                   ) : (
                     <WatermarkedImage
-                      src={selected.image}
+                      src={selected.image && selected.image.includes('cloudinary.com')
+                        ? selected.image.replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
+                        : selected.image}
                       alt={isKo ? selected.titleKo : selected.title}
                       watermarkText="© Gleedoc Studio"
+                      className="object-contain max-h-[60vh] max-w-[60vw] w-auto mx-auto"
                     />
                   )}
                 </div>
-                <div className="p-6 md:p-8 space-y-4">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl font-semibold tracking-tight">
-                      {isKo ? selected.titleKo : selected.title}
-                    </h3>
-                    <p className="text-neutral-500">
-                      {isKo ? selected.categoryKo : selected.category} · {selected.year}
+              </div>
+              
+              {/* 설명 + 타이틀 + 클라이언트 + 아티스트 영역 */}
+              <div className="pt-4 border-t border-neutral-200 space-y-2">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8 pb-8">
+                  {/* 설명 + Medical Illustrator 영역 */}
+                  <div className="w-full flex flex-col gap-6 px-4 md:px-8">
+                    {/* 타이틀 */}
+                    <h3 className="text-2xl font-bold text-center mb-2 mt-2">{selected && (isKo ? selected.titleKo : selected.title)}</h3>
+                    {/* 설명 */}
+                    <p className="text-base text-neutral-700 leading-relaxed mb-2 text-left break-words">
+                      {selected && (isKo ? selected.descKo : selected.descEn)}
                     </p>
-                    <p className="text-sm text-neutral-500">{selected.client}</p>
-                  </div>
-                  <p className="text-neutral-700 leading-relaxed">
-                    {isKo ? selected.descKo : selected.descEn}
-                  </p>
-
-                  {/* Artists Section */}
-                  {selected.artists && selected.artists.length > 0 && (
-                    <div className="pt-4 border-t border-neutral-200 space-y-2">
-                      <p className="text-sm font-medium text-neutral-600">
-                        {isKo ? '담당 일러스트레이터' : 'Medical Illustrators'}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {selected.artists.map((artistId) => {
-                          const artist = artists.find(a => a.id === artistId);
-                          return artist ? (
-                            <span
-                              key={artistId}
-                              className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
-                            >
-                              {isKo ? artist.nameKo : artist.name}
-                            </span>
-                          ) : null;
-                        })}
+                    {/* 클라이언트 (작업기간/Year는 삭제) */}
+                    {selected && selected.client && (
+                      <div className="text-lg text-neutral-700 font-semibold flex flex-col items-center mb-2 gap-1">
+                        <span>
+                          {isKo
+                            ? <>클라이언트: <span className="font-bold">{selected.client}</span></>
+                            : <>Client: <span className="font-bold">{selected.clientEn || selected.client}</span></>
+                          }
+                        </span>
                       </div>
+                    )}
+                    {selected && selected.year && (
+                      <div className="text-base text-neutral-500 font-normal flex flex-col items-center mb-2">
+                        {isKo ? `작업기간: ${selected.year}` : `Work period: ${selected.year}`}
+                      </div>
+                    )}
+                    {/* Medical Illustrator */}
+                    <div className="flex flex-row flex-wrap items-center justify-center gap-2 mt-2 mb-2">
+                      <span className="text-base font-semibold text-neutral-700 mr-2">
+                        {isKo
+                          ? '담당 일러스트레이터'
+                          : (selected.artists.length === 1 ? 'Medical Illustrator' : 'Medical Illustrators')}
+                      </span>
+                      {selected.artists.map((artistId) => {
+                        const artist = artists.find(a => a.id === artistId)
+                          || alumniIllustrators.find(a => a.id === artistId)
+                          || (ceo && ceo.id === artistId ? ceo : null);
+                        return artist ? (
+                          <span
+                            key={artistId}
+                            className="px-4 py-2 bg-primary/10 text-primary text-base rounded-full font-medium shadow-sm"
+                          >
+                            {isKo ? artist.nameKo : artist.name}
+                          </span>
+                        ) : null;
+                      })}
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </motion.div>

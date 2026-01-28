@@ -181,7 +181,7 @@ export default function FAQ({ lang }) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-6 md:px-8 py-4 bg-neutral-50 text-neutral-600 border-t border-neutral-200">
+                <div className="px-4 md:px-8 py-4 bg-neutral-50 text-neutral-600 border-t border-neutral-200 text-left leading-relaxed break-keep" style={{wordBreak:'keep-all'}}>
                   {item.a}
                 </div>
               </motion.div>

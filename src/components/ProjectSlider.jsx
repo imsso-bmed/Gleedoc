@@ -12,7 +12,12 @@ export default function ProjectSlider() {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 15s linear infinite;
+        }
+        @media (min-width: 768px) {
+          .animate-marquee {
+            animation-duration: 65s !important;
+          }
         }
         .marquee-group:hover .animate-marquee {
           animation-play-state: paused;
@@ -21,17 +26,17 @@ export default function ProjectSlider() {
       
       <div className="marquee-group w-full overflow-hidden">
         <div 
-          className="flex gap-4 md:gap-8 animate-marquee w-max"
+          className="flex gap-2 md:gap-8 animate-marquee w-full md:w-max"
         >
           {[...images, ...images, ...images, ...images].map((src, i) => (
             <div 
               key={i} 
-              className={`
-                relative flex-shrink-0 w-[280px] h-[400px] md:w-[400px] md:h-[560px] overflow-hidden transition-all duration-500 hover:opacity-90
-                ${i % 3 === 0 ? 'rounded-tl-[100px]' : ''}
-                ${i % 3 === 1 ? 'rounded-tr-[100px] rounded-bl-[40px]' : ''}
-                ${i % 3 === 2 ? 'rounded-[40px]' : ''}
-              `}
+              className={
+                `relative flex-shrink-0 w-[90vw] h-[90vw] max-w-[400px] max-h-[400px] md:w-[400px] md:h-[400px] overflow-hidden transition-all duration-500 hover:opacity-90 ` +
+                (i % 3 === 0 ? 'rounded-tl-[100px]' : '') +
+                (i % 3 === 1 ? 'rounded-tr-[100px] rounded-bl-[40px]' : '') +
+                (i % 3 === 2 ? 'rounded-[40px]' : '')
+              }
             >
               <img 
                 src={src} 

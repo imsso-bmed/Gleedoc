@@ -39,25 +39,28 @@ export default function Footer({ lang }) {
       <div className="max-w-6xl mx-auto">
         {/* Clients Section */}
         <div className="mb-16 pb-12 border-b border-white/10">
-          <h4 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-wider">
+          <h4 className="text-2xl font-bold text-white mb-6 uppercase tracking-wider">
             {t.partners}
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="flex flex-col items-center justify-center gap-2 h-28 bg-neutral-900 rounded-lg hover:bg-neutral-800 transition-colors px-3 text-center"
+                className="flex flex-col items-center justify-center gap-2 h-28 bg-white rounded-lg transition-colors px-3 text-center border border-neutral-200"
               >
                 {client.logo ? (
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-h-10 w-auto object-contain"
-                  />
+                  <div className="w-full flex items-center justify-center h-16 py-2">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="max-h-10 w-auto object-contain"
+                      style={{ backgroundColor: '#fff' }}
+                    />
+                  </div>
                 ) : (
-                  <p className="text-xs text-neutral-300 text-center px-2">{client.name}</p>
+                  <p className="text-xs text-neutral-500 text-center px-2">{client.name}</p>
                 )}
-                <div className="leading-tight text-xs text-neutral-300">
+                <div className="leading-tight text-xs text-neutral-500">
                   <div>{isKo ? client.nameKo : client.name}</div>
                 </div>
               </div>

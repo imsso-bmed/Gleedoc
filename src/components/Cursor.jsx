@@ -40,11 +40,11 @@ export default function Cursor() {
         translateX: cursorXSpring,
         translateY: cursorYSpring,
         scale: hovered ? 2.4 : 1,
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
+        // backdropFilter: 'blur(10px)',
+        // WebkitBackdropFilter: 'blur(10px)',
         border: '1px solid rgba(255,255,255,0.35)',
         background: 'rgba(255,255,255,0.12)',
-        boxShadow: '0 8px 24px rgba(0,0,0,0.18)',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.18)',
         mixBlendMode: 'difference',
       }}
     >

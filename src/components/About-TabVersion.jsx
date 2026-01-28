@@ -4,6 +4,7 @@
 import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ceo, medicalIllustrators, alumniIllustrators } from '../data/team';
+import CeoImageCompareSlider from './CeoImageCompareSlider';
 import { Link } from 'lucide-react';
 
 const translations = {
@@ -112,14 +113,10 @@ export default function AboutTabVersion({ lang, onSelectArtist = () => {} }) {
             className="space-y-12"
           >
             <div className="grid md:grid-cols-2 gap-8 items-start">
-              <div className="relative aspect-square bg-neutral-200 rounded-full overflow-hidden w-56 h-56 md:w-72 md:h-72 mx-auto md:mx-0">
-                <img
-                  src={ceo.image}
-                  alt={isKo ? ceo.nameKo : ceo.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="min-w-[220px] flex-shrink-0 overflow-hidden">
+                <CeoImageCompareSlider ceo={ceo} isKo={isKo} />
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 min-w-0 break-words">
                 <div className="flex flex-col gap-2">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -205,21 +202,53 @@ export default function AboutTabVersion({ lang, onSelectArtist = () => {} }) {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10"
           >
             {sortedIllustrators.map((artist, i) => (
-              <motion.div
-                key={artist.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white border border-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="bg-neutral-200 overflow-hidden h-44 md:h-52">
-                  <img
-                    src={artist.image}
-                    alt={isKo ? artist.nameKo : artist.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+                <motion.div
+                  key={artist.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white border border-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div
+                    className="overflow-hidden h-44 md:h-52"
+                    style={
+                      artist.id === 'soyoung-lim'
+                        ? {
+                            background: 'linear-gradient(to bottom, rgba(220, 214, 228, 1), rgba(206, 196, 222, 1))'
+                          }
+                        : artist.id === 'jeongin-choi'
+                          ? { backgroundColor: 'rgba(180, 207, 220, 1)' }
+                          : artist.id === 'haeun-kim'
+                            ? { backgroundColor: 'rgba(241, 241, 239, 1)' }
+                            : artist.id === 'hyejeong-hong'
+                              ? { backgroundColor: 'rgba(217, 202, 190, 1)' }
+                              : { backgroundColor: 'rgb(229 229 229)' }
+                    }
+                  >
+                    <div
+                      className="w-full h-full flex items-center justify-center"
+                      style={
+                        artist.id === 'soyoung-lim'
+                          ? {
+                              background: 'linear-gradient(to bottom, rgba(220, 214, 228, 1), rgba(206, 196, 222, 1))'
+                            }
+                          : artist.id === 'jeongin-choi'
+                            ? { backgroundColor: 'rgba(180, 207, 220, 1)' }
+                            : artist.id === 'haeun-kim'
+                              ? { backgroundColor: 'rgba(241, 241, 239, 1)' }
+                              : artist.id === 'hyejeong-hong'
+                                ? { backgroundColor: 'rgba(217, 202, 190, 1)' }
+                                : { backgroundColor: 'rgb(229 229 229)' }
+                      }
+                    >
+                      <img
+                        src={artist.image}
+                        alt={isKo ? artist.nameKo : artist.name}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  </div>
                 <div className="p-6 space-y-4">
                   <div>
                     <h3 className="text-2xl font-bold">

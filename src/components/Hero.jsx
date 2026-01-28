@@ -32,7 +32,10 @@ export default function Hero({ lang }) {
   const t = translations[lang];
   const title = t.title;
   // 한글일 때 폰트 사이즈 줄임 (글자 수가 많아서)
-  const fontSize = lang === 'ko' ? 'text-[8vw]' : 'text-[12vw]';
+  // 영문은 모바일에서 더 작게, md 이상에서만 크게
+  const fontSize = lang === 'ko'
+    ? 'text-[8vw]'
+    : 'text-[7vw] md:text-[12vw]';
 
   return (
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-white text-black pt-20">
@@ -56,7 +59,11 @@ export default function Hero({ lang }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="text-xl md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto whitespace-pre-line leading-[2.5]"
+          className={
+            `text-base md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto whitespace-pre-line leading-relaxed md:leading-[2.5] ` +
+            (lang === 'ko' ? 'break-keep' : '')
+          }
+          style={{wordBreak:'keep-all', lineHeight:'1.7'}}
         >
           {t.desc}
         </motion.p>
