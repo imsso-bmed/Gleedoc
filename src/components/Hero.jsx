@@ -33,19 +33,22 @@ export default function Hero({ lang }) {
   const title = t.title;
   // 한글일 때 폰트 사이즈 줄임 (글자 수가 많아서)
   // 영문은 모바일에서 더 작게, md 이상에서만 크게
-  const fontSize = lang === 'ko'
-    ? 'text-[8vw]'
-    : 'text-[7vw] md:text-[12vw]';
+  // clamp로 최소~최대 폰트 크기 제한, 줄바꿈 방지
+  const fontSize = 'text-[clamp(2.5rem,8vw,7rem)]';
 
   return (
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-white text-black pt-20">
       <div className="w-full px-4 text-center">
-        <h1 className={`${fontSize} leading-none font-bold tracking-tighter mb-4 select-none flex justify-center overflow-hidden py-[2vw] flex-wrap justify-center`}>
-          <motion.div 
+        <h1
+          className={`${fontSize} leading-none font-bold tracking-tighter mb-4 select-none flex justify-center overflow-hidden py-[2vw] whitespace-nowrap`}
+          style={{width:'100%',overflow:'hidden',textOverflow:'ellipsis'}}
+        >
+          <motion.div
             variants={containerAnim}
             initial="initial"
             animate="animate"
-            className="flex flex-wrap justify-center"
+            className="flex justify-center w-full"
+            style={{whiteSpace:'nowrap'}}
           >
             {title.split('').map((char, i) => (
               <motion.span key={i} variants={letterAnim} className="inline-block relative">

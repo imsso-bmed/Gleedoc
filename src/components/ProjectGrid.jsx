@@ -14,41 +14,44 @@ function WatermarkedImage({ src, alt, watermarkText }) {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
-      canvas.width = img.width;
-      canvas.height = img.height;
+      // 부모 크기에 맞게 캔버스 크기 조정, 부모가 0x0이면 원본 이미지 크기로 fallback
+      const parent = canvas.parentElement;
+      let maxW = img.width, maxH = img.height;
+      if (parent) {
+        const parentRect = parent.getBoundingClientRect();
+        if (parentRect.width > 0 && parentRect.height > 0) {
+          const scale = Math.min(parentRect.width / img.width, parentRect.height / img.height, 1);
+          maxW = img.width * scale;
+          maxH = img.height * scale;
+        }
+      }
+      canvas.width = maxW;
+      canvas.height = maxH;
       const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, maxW, maxH);
+      ctx.drawImage(img, 0, 0, maxW, maxH);
 
-      // Draw the original image
-      ctx.drawImage(img, 0, 0);
-
-      // 동적 워터마크 폰트 크기 (이미지 너비의 8% 또는 최소 32px)
-      const fontSize = Math.max(Math.floor(img.width * 0.08), 32);
+      // 워터마크 폰트 크기 (이미지 너비의 8% 또는 최소 24px)
+      const fontSize = Math.max(Math.floor(maxW * 0.08), 24);
       ctx.font = `bold ${fontSize}px Arial`;
       ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
       ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
       ctx.lineWidth = 2;
-
-      // Measure text
       const metrics = ctx.measureText(watermarkText);
-      const textX = (img.width - metrics.width) / 2;
-      const textY = img.height / 2;
-
-      // Draw watermark with outline
+      const textX = (maxW - metrics.width) / 2;
+      const textY = maxH / 2;
       ctx.strokeText(watermarkText, textX, textY);
       ctx.fillText(watermarkText, textX, textY);
-
       setImageLoaded(true);
     };
-    img.onerror = () => {
-      setImageLoaded(true);
-    };
+    img.onerror = () => setImageLoaded(true);
     img.src = src;
   }, [src, watermarkText]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="w-full h-full object-contain"
+      className="object-contain w-full h-full max-w-full max-h-full"
       style={{ display: imageLoaded ? 'block' : 'none' }}
     />
   );
@@ -356,7 +359,7 @@ export const projects = [
     },
   {
     id: 12,
-    title: "소아과학회-소아알러지반응",
+    title: "Pediatric allergy reaction illustration for the Pediatric Society",
     titleKo: "소아과학회-소아알러지반응",
     category: ["Medical Illustration", "Infographic"],
     categoryKo: ["의학 일러스트","인포그래픽"],
@@ -401,6 +404,20 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
   const [activeTag, setActiveTag] = useState('all');
   const [activeArtist, setActiveArtist] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
+
+  // 모달에서 키보드 좌우 화살표로 이미지 넘기기
+  useEffect(() => {
+    if (!selected || !(selected.images && selected.images.length > 1)) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') {
+        handlePrevImage();
+      } else if (e.key === 'ArrowRight') {
+        handleNextImage();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selected, imageIndex]);
 
   useEffect(() => {
     setActiveArtist(artistFilter || null);
@@ -623,7 +640,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
             onClick={closeModal}
           >
             <motion.div
-              className="bg-white text-black max-w-3xl w-[98vw] md:w-[70vw] max-h-[95vh] overflow-y-auto scrollbar-none rounded-2xl shadow-2xl relative"
+              className="bg-white text-black w-[85vw] max-w-[1100px] max-h-[95vh] overflow-y-auto scrollbar-none rounded-2xl shadow-2xl relative"
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
@@ -631,15 +648,16 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 transition-colors"
+                className="fixed md:absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 transition-colors z-50 bg-white/90"
                 onClick={closeModal}
                 aria-label="Close"
+                style={{boxShadow:'0 2px 8px 0 rgba(0,0,0,0.08)'}}
               >
-                <X size={22} />
+                <X size={28} />
               </button>
               <div className="relative h-auto min-h-0 bg-neutral-100 flex flex-row items-center justify-center overflow-hidden gap-2">
                 {/* 이미지 영역 */}
-                <div className="flex-shrink-0 flex items-center justify-center bg-white p-0 max-w-[60vw] max-h-[60vh]">
+                <div className="flex-shrink-0 flex items-center justify-center bg-white p-0 w-[60vw] h-[60vh] min-w-0 min-h-0 relative overflow-hidden">
                   {selected.video ? (
                     <iframe
                       width="100%"
@@ -652,54 +670,54 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                       className="w-full h-full"
                     />
                   ) : selected.images && selected.images.length > 0 ? (
-                    <div className="relative max-w-[60vw] max-h-[60vh] flex items-center justify-center">
+                    <div className="relative flex items-center justify-center w-full h-full">
                       <WatermarkedImage
                         src={selected.images[imageIndex] && selected.images[imageIndex].includes('cloudinary.com')
                           ? selected.images[imageIndex].replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
                           : selected.images[imageIndex]}
                         alt={`${isKo ? selected.titleKo : selected.title} ${imageIndex + 1}`}
                         watermarkText="© Gleedoc Studio"
-                        className="object-contain max-h-[60vh] max-w-[60vw] w-auto mx-auto"
-                        style={{objectFit:'contain',maxWidth:'60vw',maxHeight:'60vh'}}
+                        className="object-contain w-full h-full"
+                        style={{objectFit:'contain'}}
                       />
-                      {/* dot indicator 항상 표시 */}
-                      <>
-                        {selected.images.length > 1 && (
-                          <>
+                      {/* 이미지가 2장 이상일 때만 좌우 버튼 렌더링 */}
+                      {selected.images.length > 1 && (
+                        <>
+                          <button
+                            onClick={handlePrevImage}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-40"
+                            aria-label="Previous image"
+                            style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.10)' }}
+                          >
+                            <ChevronLeft size={24} />
+                          </button>
+                          <button
+                            onClick={handleNextImage}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-40"
+                            aria-label="Next image"
+                            style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.10)' }}
+                          >
+                            <ChevronRight size={24} />
+                          </button>
+                        </>
+                      )}
+                      {selected.images.length > 1 && (
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+                          {selected.images.map((_, i) => (
                             <button
-                              onClick={handlePrevImage}
-                              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-10"
-                              aria-label="Previous image"
-                            >
-                              <ChevronLeft size={20} />
-                            </button>
-                            <button
-                              onClick={handleNextImage}
-                              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white rounded-full transition-colors z-10"
-                              aria-label="Next image"
-                            >
-                              <ChevronRight size={20} />
-                            </button>
-                          </>
-                        )}
-                        {selected.images.length > 1 && (
-                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                            {selected.images.map((_, i) => (
-                              <button
-                                key={i}
-                                onClick={() => setImageIndex(i)}
-                                className={`w-3 h-3 rounded-full border-2 border-white shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lime-400 ${
-                                  i === imageIndex
-                                    ? 'bg-lime-400 scale-110 drop-shadow-lg'
-                                    : 'bg-white/70 opacity-80'
-                                }`}
-                                style={{ outline: '2px solid rgba(0,0,0,0.18)' }}
-                                aria-label={`Go to image ${i + 1}`}
-                              />
-                            ))}
-                          </div>
-                        )}
-                      </>
+                              key={i}
+                              onClick={() => setImageIndex(i)}
+                              className={`w-3 h-3 rounded-full border-2 border-white shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lime-400 ${
+                                i === imageIndex
+                                  ? 'bg-lime-400 scale-110 drop-shadow-lg'
+                                  : 'bg-white/70 opacity-80'
+                              }`}
+                              style={{ outline: '2px solid rgba(0,0,0,0.18)' }}
+                              aria-label={`Go to image ${i + 1}`}
+                            />
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <WatermarkedImage
@@ -708,7 +726,8 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                         : selected.image}
                       alt={isKo ? selected.titleKo : selected.title}
                       watermarkText="© Gleedoc Studio"
-                      className="object-contain max-h-[60vh] max-w-[60vw] w-auto mx-auto"
+                      className="object-contain w-full h-full max-w-full max-h-full min-w-0 min-h-0"
+                      style={{objectFit:'contain',width:'100%',height:'100%',maxWidth:'100%',maxHeight:'100%'}}
                     />
                   )}
                 </div>
@@ -718,11 +737,11 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
               <div className="pt-4 border-t border-neutral-200 space-y-2">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 pb-8">
                   {/* 설명 + Medical Illustrator 영역 */}
-                  <div className="w-full flex flex-col gap-6 px-4 md:px-8">
+                  <div className="w-full flex flex-col gap-6 px-4 md:px-8 items-center text-center">
                     {/* 타이틀 */}
                     <h3 className="text-2xl font-bold text-center mb-2 mt-2">{selected && (isKo ? selected.titleKo : selected.title)}</h3>
                     {/* 설명 */}
-                    <p className="text-base text-neutral-700 leading-relaxed mb-2 text-left break-words">
+                    <p className="text-base text-neutral-700 leading-relaxed mb-2 text-left break-words max-w-2xl mx-auto" style={{textAlign:'left'}}>
                       {selected && (isKo ? selected.descKo : selected.descEn)}
                     </p>
                     {/* 클라이언트 (작업기간/Year는 삭제) */}
