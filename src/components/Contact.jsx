@@ -6,7 +6,7 @@ const translations = {
   en: {
     title: "Get in Touch",
     subtitle: "We'd love to hear from you. Drop us a line.",
-    email: "hello@gleedoc.com",
+    email: "jsrrules@gmail.com",
     kakao: "https://pf.kakao.com/_xjJpxbd",
     address: "Seoul, South Korea",
     name: "Full Name",
