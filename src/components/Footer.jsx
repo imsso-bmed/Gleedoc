@@ -105,8 +105,7 @@ export default function Footer({ lang }) {
               {t.contact}
             </h4>
             <ul className="space-y-4">
-              <li><a href="mailto:hello@gleedoc.com" className="hover:text-neutral-300 transition-colors">hello@gleedoc.com</a></li>
-              <li><a href="tel:+82-2-1234-5678" className="hover:text-neutral-300 transition-colors">+82 (0)2 1234 5678</a></li>
+                <li><a href="mailto:jsrrules@gmail.com" className="hover:text-neutral-300 transition-colors">jsrrules@gmail.com</a></li>
             </ul>
           </div>
         </div>
