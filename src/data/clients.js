@@ -96,7 +96,7 @@ export const socials = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/jinsoorhu/',
+    url: 'https://linkedin.com/company/gleedoc',
     icon: 'Linkedin',
     label: { en: 'LinkedIn', ko: 'LinkedIn' }
   }

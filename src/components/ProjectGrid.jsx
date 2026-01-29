@@ -94,7 +94,7 @@ export const projects = [
                                     titleKo: "대한대동맥연구회 로고디자인",
                                     category: ["Logo Design"],
                                     categoryKo: ["로고디자인"],
-                                    tags: ["logo-design", "medical-logo"],
+                                    tags: ["logo-design"],
                                     artists: ["jeah-kim"],
                                     year: "2023.05",
                                     image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png",
