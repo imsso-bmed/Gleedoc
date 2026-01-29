@@ -410,8 +410,33 @@ export default function AboutTabVersion({ lang, onSelectArtist = () => {} }) {
                     </p>
                   </div>
 
-                  {/* bio와 interests는 alumni에서 제거됨. 이름/역할/이미지/경험만 표시 */}
-                  {/* 필요시 추가 정보는 아래에 구현 */}
+                  {/* 웹사이트가 있을 경우 버튼 표시 */}
+                  {artist.website && (
+                    <div>
+                      {Array.isArray(artist.website) ? (
+                        artist.website.map((url, idx) => (
+                          <a
+                            key={url}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block mt-2 px-4 py-2 text-sm rounded bg-neutral-100 hover:bg-neutral-200 text-primary font-semibold transition-colors mr-2"
+                          >
+                            {t.visitWebsite}{artist.website.length > 1 ? ` #${idx + 1}` : ''}
+                          </a>
+                        ))
+                      ) : (
+                        <a
+                          href={artist.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-2 px-4 py-2 text-sm rounded bg-neutral-100 hover:bg-neutral-200 text-primary font-semibold transition-colors"
+                        >
+                          {t.visitWebsite}
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
