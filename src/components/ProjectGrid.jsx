@@ -73,7 +73,7 @@ export const projects = [
                                         "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/2_localization_h81uhv.jpg",
                                         "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/3_injection_qmj7zd.jpg",
                                         "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683874/4_incision_ztxfev.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683874/4_incision_ztxfev.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683875/5_retracting_draxiy.jpg",
                                         "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/6_excisionLine_lyrzfx.jpg",
                                         "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/7_tumorExcision_vgurf5.jpg",
                                         "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/8_ADM_xpfhyv.jpg",
