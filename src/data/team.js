@@ -174,18 +174,7 @@ export const medicalIllustrators = [
 ];
 
 export const alumniIllustrators = [
-  {
-    id: 'nari-kim',
-    name: 'Nari Kim',
-    nameKo: '김나리',
-    role: 'Medical Illustrator',
-    roleKo: '메디컬 일러스트레이터',
-    image: '/images/team/artist-alumni-1.jpg',
-    website: '',
-    experience: ['Surgical Illustrations', 'Patient Education'],
-    projectIds: []
-  },
-  {
+    {
     id: 'jeah-kim',
     name: 'Jeah Kim',
     nameKo: '김지아',
@@ -194,17 +183,6 @@ export const alumniIllustrators = [
     image: '/images/team/artist-alumni-5.jpg',
     website: '',
     experience: ['Biomedical Visualization', 'Patient Education'],
-    projectIds: []
-  },
-  {
-    id: 'jehoon-oh',
-    name: 'Jehoon Oh',
-    nameKo: '오제훈',
-    role: 'Medical Illustrator',
-    roleKo: '메디컬 일러스트레이터',
-    image: '/images/team/artist-alumni-2.jpg',
-    website: '',
-    experience: ['Medical Illustration'],
     projectIds: []
   },
   {
