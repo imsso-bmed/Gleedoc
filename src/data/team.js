@@ -58,7 +58,7 @@ export const medicalIllustrators = [
     nameKo: '김하은',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769516986/profile_haeun_j74arb.jpg',
+    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769682082/profile_haeun.jpg_vmrv0f.png',
     email: 'haeunhannah1230@gmail.com',
     bio: {
       en: 'Medical Illustrator\nProviding visualization solutions that elevate the value of research. I specialize in translating complex medical information into clear visual language.',
