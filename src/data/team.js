@@ -214,7 +214,7 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769649485/profile_miseung_v95qmq.png',
-    website: 'https://raltmd24.myportfolio.com/work',
+    website: 'https://miseung.artstation.com/',
     experience: ['Infographic Design', 'Medical Illustration', 'Surgical Illustration'],
     projectIds: []
   },
