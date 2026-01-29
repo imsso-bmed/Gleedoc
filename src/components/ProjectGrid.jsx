@@ -58,6 +58,25 @@ function WatermarkedImage({ src, alt, watermarkText }) {
 }
 
 export const projects = [
+                                  {
+                                    id: 50,
+                                    title: "Aortic Research Society Logo",
+                                    titleKo: "대한대동맥연구회 로고디자인",
+                                    category: ["Logo Design"],
+                                    categoryKo: ["로고디자인"],
+                                    tags: ["logo-design", "medical-logo"],
+                                    artists: ["jia-kim"],
+                                    year: "2023.05",
+                                    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png",
+                                    images: [
+                                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png"
+                                    ],
+                                    video: null,
+                                    descKo: "대한대동맥연구회 로고디자인.",
+                                    descEn: "Logo design for Korean Aortic Research Society.",
+                                    client: "대한대동맥연구회",
+                                    clientEn: "Korean Aortic Research Society",
+                                  },
                                 {
                                   id: 136,
                                   title: "TICGLE",
