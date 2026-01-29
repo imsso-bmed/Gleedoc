@@ -73,7 +73,7 @@ export default function Footer({ lang }) {
             <h2 className="text-4xl font-bold tracking-tighter mb-8">Gleedoc</h2>
             <p className="max-w-md text-neutral-400">
               {lang === 'en' 
-                ? "Medical illustrations crafted together by physicians and medical illustrators."
+                ? "Medical illustrations crafted together by surgeon and medical illustrators."
                 : "의사와 메디컬일러스트레이터가 함께 그리는 메디컬 일러스트."
               }
             </p>
