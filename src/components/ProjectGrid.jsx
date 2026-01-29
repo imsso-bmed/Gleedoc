@@ -599,7 +599,11 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                       ? project.image.replace('/upload/', '/upload/q_auto,f_auto,w_600,h_450,c_limit/')
                       : project.image
                   }
-                  alt={isKo ? project.titleKo : project.title}
+                  alt={
+                    isKo
+                      ? `메디컬 일러스트, 의료 일러스트레이션, 의학 그림 | ${project.titleKo} | Gleedoc 포트폴리오`
+                      : `Medical Illustration, Medical Art, Healthcare Visualization | ${project.title} | Gleedoc Portfolio`
+                  }
                   className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 bg-white"
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
@@ -675,7 +679,11 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                         src={selected.images[imageIndex] && selected.images[imageIndex].includes('cloudinary.com')
                           ? selected.images[imageIndex].replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
                           : selected.images[imageIndex]}
-                        alt={`${isKo ? selected.titleKo : selected.title} ${imageIndex + 1}`}
+                        alt={
+                          isKo
+                            ? `메디컬 일러스트, 의료 일러스트레이션, 의학 그림 | ${selected.titleKo} ${imageIndex + 1} | Gleedoc 포트폴리오`
+                            : `Medical Illustration, Medical Art, Healthcare Visualization | ${selected.title} ${imageIndex + 1} | Gleedoc Portfolio`
+                        }
                         watermarkText="© Gleedoc Studio"
                         className="object-contain w-full h-full"
                         style={{objectFit:'contain'}}
@@ -724,7 +732,11 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                       src={selected.image && selected.image.includes('cloudinary.com')
                         ? selected.image.replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
                         : selected.image}
-                      alt={isKo ? selected.titleKo : selected.title}
+                      alt={
+                        isKo
+                          ? `메디컬 일러스트, 의료 일러스트레이션, 의학 그림 | ${selected.titleKo} | Gleedoc 포트폴리오`
+                          : `Medical Illustration, Medical Art, Healthcare Visualization | ${selected.title} | Gleedoc Portfolio`
+                      }
                       watermarkText="© Gleedoc Studio"
                       className="object-contain w-full h-full max-w-full max-h-full min-w-0 min-h-0"
                       style={{objectFit:'contain',width:'100%',height:'100%',maxWidth:'100%',maxHeight:'100%'}}
