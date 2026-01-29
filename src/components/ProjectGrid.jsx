@@ -58,6 +58,36 @@ function WatermarkedImage({ src, alt, watermarkText }) {
 }
 
 export const projects = [
+                                    {
+                                      id: 188,
+                                      title: "SLN, BCS Figure",
+                                      titleKo: "SLN, BCS Figure",
+                                      category: ["Figure", "Surgical Illustration"],
+                                      categoryKo: ["Figure", "수술 일러스트"],
+                                      tags: ["figure", "surgical-illustration"],
+                                      artists: ["cheolhee-han"],
+                                      year: "2023.07",
+                                      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                      images: [
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/6_excisionLine_lyrzfx.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/7_tumorExcision_vgurf5.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/7_tumorExcision_vgurf5.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683867/9_suture1_dofrrn.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683867/10_suture2_ce5liq.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683993/11_lateralview_sample4_ojhh4x.jpg",
+                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769684006/SLN_sample7_final_vlwds1.jpg"
+                                      ],
+                                      video: null,
+                                      descKo: "서영진 교수님 의뢰(가톨릭대학교 성빈센트 유방외과), SLN, BCS figure.",
+                                      descEn: "SLN, BCS figure for Prof. Youngjin Seo (St. Vincent's Hospital, Catholic University of Korea, Breast Surgery).",
+                                      client: "서영진 교수님 (가톨릭대학교 성빈센트 유방외과)",
+                                      clientEn: "Prof. Youngjin Seo, St. Vincent's Hospital, Catholic University of Korea, Breast Surgery",
+                                    },
                                   {
                                     id: 50,
                                     title: "Aortic Research Society Logo",
