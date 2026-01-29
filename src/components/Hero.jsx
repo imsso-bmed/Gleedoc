@@ -61,6 +61,9 @@ export default function Hero({ lang }) {
             ))}
           </motion.div>
         </h1>
+        <h2 className="text-xl md:text-4xl font-semibold text-neutral-700 text-center mb-2 select-none">
+          {t.subtitle}
+        </h2>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
