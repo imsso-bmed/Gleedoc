@@ -214,7 +214,7 @@ export const alumniIllustrators = [
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
     image: '/images/team/artist-alumni-3.jpg',
-    website: '',
+    website: 'https://raltmd24.myportfolio.com/work',
     experience: ['Infographic Design', 'Medical Illustration', 'Surgical Illustration'],
     projectIds: []
   },

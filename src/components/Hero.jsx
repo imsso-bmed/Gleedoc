@@ -40,8 +40,11 @@ export default function Hero({ lang }) {
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-white text-black pt-20">
       <div className="w-full px-4 text-center">
         <h1
-          className={`${fontSize} leading-none font-bold tracking-tighter mb-4 select-none flex justify-center overflow-hidden py-[2vw] whitespace-nowrap`}
-          style={{width:'100%',overflow:'hidden',textOverflow:'ellipsis'}}
+          className={
+            `${fontSize} leading-none font-bold tracking-tighter mb-4 select-none flex justify-center overflow-hidden py-[2vw] ` +
+            (lang === 'ko' ? 'whitespace-nowrap' : 'whitespace-nowrap')
+          }
+          style={{width:'100%',overflow:'hidden',textOverflow:'ellipsis', whiteSpace:'nowrap', wordBreak: lang === 'ko' ? 'keep-all' : undefined}}
         >
           <motion.div
             variants={containerAnim}
@@ -63,10 +66,10 @@ export default function Hero({ lang }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
           className={
-            `text-base md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto whitespace-pre-line leading-relaxed md:leading-[2.5] ` +
-            (lang === 'ko' ? 'break-keep' : '')
+            `text-base md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto leading-relaxed md:leading-[2.5] ` +
+            (lang === 'ko' ? 'whitespace-nowrap' : 'whitespace-pre-line')
           }
-          style={{wordBreak:'keep-all', lineHeight:'1.7'}}
+          style={{wordBreak: lang === 'ko' ? 'keep-all' : 'normal', lineHeight:'1.7'}}
         >
           {t.desc}
         </motion.p>
