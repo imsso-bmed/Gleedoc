@@ -4,12 +4,10 @@ import { motion } from 'framer-motion';
 const translations = {
   en: {
     title: "Medical Illustration",
-    subtitle: "Studio",
     desc: "We work with researchers to craft precise and beautiful medical illustrations, communicating clearly through collaboration."
   },
   ko: {
     title: "메디컬 일러스트레이션",
-    subtitle: "스튜디오",
     desc: "보다 정확하고 아름다운 메디컬일러스트를 위해\n연구자와 함께 고민하며 커뮤니케이션을 통해 작업합니다."
   }
 };
@@ -61,16 +59,13 @@ export default function Hero({ lang }) {
             ))}
           </motion.div>
         </h1>
-        <h2 className="text-xl md:text-4xl font-semibold text-neutral-700 text-center mb-2 select-none">
-          {t.subtitle}
-        </h2>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
           className={
-            `text-base md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto leading-relaxed md:leading-[2.5] ` +
+            `text-base md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto leading-relaxed md:leading-[2.5] text-center ` +
             (lang === 'ko' ? 'whitespace-nowrap' : 'whitespace-pre-line')
           }
           style={{wordBreak: lang === 'ko' ? 'keep-all' : 'normal', lineHeight:'1.7'}}
