@@ -213,7 +213,7 @@ export const alumniIllustrators = [
     nameKo: '김미승',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: '/images/team/artist-alumni-3.jpg',
+    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769649485/profile_miseung_v95qmq.png',
     website: 'https://raltmd24.myportfolio.com/work',
     experience: ['Infographic Design', 'Medical Illustration', 'Surgical Illustration'],
     projectIds: []
