@@ -32,8 +32,8 @@ export default function Hero({ lang }) {
   const t = translations[lang];
   // 핵심 키워드 추가
   const title = lang === 'ko'
-    ? '메디컬 일러스트 · 의료 일러스트레이션 · 의학 그림 | ' + t.title
-    : 'Medical Illustration · Medical Art · Healthcare Visualization | ' + t.title;
+    ? '메디컬 일러스트레이션' + t.title
+    : 'Medical Illustration' + t.title;
   // 한글일 때 폰트 사이즈 줄임 (글자 수가 많아서)
   // 영문은 모바일에서 더 작게, md 이상에서만 크게
   // clamp로 최소~최대 폰트 크기 제한, 줄바꿈 방지
