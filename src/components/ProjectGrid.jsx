@@ -95,7 +95,7 @@ export const projects = [
                                     category: ["Logo Design"],
                                     categoryKo: ["로고디자인"],
                                     tags: ["logo-design", "medical-logo"],
-                                    artists: ["jia-kim"],
+                                    artists: ["jeah-kim"],
                                     year: "2023.05",
                                     image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png",
                                     images: [
