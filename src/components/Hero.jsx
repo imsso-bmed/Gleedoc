@@ -66,7 +66,7 @@ export default function Hero({ lang }) {
           transition={{ delay: 1, duration: 0.8 }}
           className={
             `text-base md:text-2xl text-neutral-600 font-medium tracking-tight mt-8 max-w-2xl mx-auto leading-relaxed md:leading-[2.5] text-center ` +
-            (lang === 'ko' ? 'whitespace-nowrap' : 'whitespace-pre-line')
+            (lang === 'ko' ? 'whitespace-pre-line' : 'whitespace-pre-line')
           }
           style={{wordBreak: lang === 'ko' ? 'keep-all' : 'normal', lineHeight:'1.7'}}
         >
