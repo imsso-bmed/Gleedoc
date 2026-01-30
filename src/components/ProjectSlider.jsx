@@ -1,3 +1,4 @@
+import React, { useMemo, useRef, useState } from 'react';
 import { projects } from './ProjectGrid';
 
 export default function ProjectSlider() {
