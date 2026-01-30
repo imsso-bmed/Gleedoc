@@ -20,10 +20,11 @@ export default function ProjectSlider() {
   const [scrollLeft, setScrollLeft] = useState(0);
 
   // 모바일 터치 드래그 핸들러
+
   const handleTouchStart = (e) => {
     setIsDragging(true);
-    setStartX(e.touches[0].pageX - (sliderRef.current?.scrollLeft || 0));
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+    setStartX(e.touches[0].pageX); // 터치 시작 위치만 저장
+    setScrollLeft(sliderRef.current?.scrollLeft || 0); // 터치 시작 시점의 스크롤 위치 저장
     // marquee 애니메이션 일시정지
     if (sliderRef.current) {
       sliderRef.current.classList.remove('animate-marquee');
@@ -33,8 +34,8 @@ export default function ProjectSlider() {
   const handleTouchMove = (e) => {
     if (!isDragging || !sliderRef.current) return;
     const x = e.touches[0].pageX;
-    const walk = (startX - x); // 드래그 방향 반영
-    sliderRef.current.scrollLeft = scrollLeft + walk;
+    const walk = x - startX; // 현재 위치 - 시작 위치
+    sliderRef.current.scrollLeft = scrollLeft - walk; // 기존 스크롤 위치에서 이동량만큼 더함
   };
 
   const handleTouchEnd = () => {
