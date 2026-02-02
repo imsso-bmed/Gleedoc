@@ -47,7 +47,7 @@ export default function ProjectSlider() {
   };
 
   return (
-    <section className="py-12 bg-white overflow-hidden cursor-scale">
+    <section className="py-12 bg-white overflow-x-hidden cursor-scale">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -66,7 +66,7 @@ export default function ProjectSlider() {
         }
       `}</style>
 
-      <div className="marquee-group w-full overflow-hidden">
+      <div className="marquee-group w-full overflow-x-hidden">
         <div
           ref={sliderRef}
           className="flex gap-2 md:gap-8 animate-marquee w-full md:w-max touch-pan-x"

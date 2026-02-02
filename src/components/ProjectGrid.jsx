@@ -58,55 +58,6 @@ function WatermarkedImage({ src, alt, watermarkText }) {
 }
 
 export const projects = [
-                                    {
-                                      id: 188,
-                                      title: "SLN, BCS Figure",
-                                      titleKo: "SLN, BCS Figure",
-                                      category: ["Figure", "Surgical Illustration"],
-                                      categoryKo: ["Figure", "수술 일러스트"],
-                                      tags: ["figure", "surgical-illustration"],
-                                      artists: ["cheolhee-han"],
-                                      year: "2023.07",
-                                      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
-                                      images: [
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/1_preOP_jg3ljx.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/2_localization_h81uhv.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/3_injection_qmj7zd.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683874/4_incision_ztxfev.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683875/5_retracting_draxiy.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683868/6_excisionLine_lyrzfx.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/7_tumorExcision_vgurf5.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683866/8_ADM_xpfhyv.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683867/9_suture1_dofrrn.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683867/10_suture2_ce5liq.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683993/11_lateralview_sample4_ojhh4x.jpg",
-                                        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769684006/SLN_sample7_final_vlwds1.jpg"
-                                      ],
-                                      video: null,
-                                      descKo: "서영진 교수님 의뢰(가톨릭대학교 성빈센트 유방외과), SLN, BCS figure.",
-                                      descEn: "SLN, BCS figure for Prof. Youngjin Seo (St. Vincent's Hospital, Catholic University of Korea, Breast Surgery).",
-                                      client: "서영진 교수님 (가톨릭대학교 성빈센트 유방외과)",
-                                      clientEn: "Prof. Youngjin Seo, St. Vincent's Hospital, Catholic University of Korea, Breast Surgery",
-                                    },
-                                  {
-                                    id: 50,
-                                    title: "Aortic Research Society Logo",
-                                    titleKo: "대한대동맥연구회 로고디자인",
-                                    category: ["Logo Design"],
-                                    categoryKo: ["로고디자인"],
-                                    tags: ["logo-design"],
-                                    artists: ["jeah-kim"],
-                                    year: "2023.05",
-                                    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png",
-                                    images: [
-                                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769683663/50_wwqy8m.png"
-                                    ],
-                                    video: null,
-                                    descKo: "대한대동맥연구회 로고디자인.",
-                                    descEn: "Logo design for Korean Aortic Research Society.",
-                                    client: "대한대동맥연구회",
-                                    clientEn: "Korean Aortic Research Society",
-                                  },
                                 {
                                   id: 136,
                                   title: "TICGLE",
@@ -328,25 +279,25 @@ export const projects = [
               client: "고려대학교 안암병원 영상의학과 조교수 신재호",
               clientEn: "Prof. Jaeho Shin, Department of Radiology, Korea University Anam Hospital",
             },
-          // {
-          //   id: 194,
-          //   title: "Duodenoduodenostomy for duodenal obstruction",
-          //   titleKo: "십이지장 폐쇄에 따른 십이지장 문합술",
-          //   category: "Surgical Illustration",
-          //   categoryKo: "수술 일러스트",
-          //   tags: ["surgical-illustration"],
-          //   artists: ["haeun-kim"],
-          //   year: "2025.03",
-          //   image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png",
-          //   images: [
-          //     "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png"
-          //   ],
-          //   video: null,
-          //   descKo: "십이지장 폐쇄 위치에 따른 십이지장 문합술 방법에 대해 2D 일러스트로 표현하였다.",
-          //   descEn: "2D illustrations of duodenoduodenostomy techniques according to the site of duodenal obstruction.",
-          //   client: "삼성서울병원 이상훈 교수",
-          //   clientEn: "Prof. Sanghoon Lee, Samsung Medical Center",
-          // },
+          {
+            id: 194,
+            title: "Duodenoduodenostomy for duodenal obstruction",
+            titleKo: "십이지장 폐쇄에 따른 십이지장 문합술",
+            category: "Surgical Illustration",
+            categoryKo: "수술 일러스트",
+            tags: ["surgical-illustration"],
+            artists: ["haeun-kim"],
+            year: "2025.03",
+            image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png",
+            images: [
+              "https://res.cloudinary.com/dmktvk7fw/image/upload/v1769532269/194_p6exfa.png"
+            ],
+            video: null,
+            descKo: "십이지장 폐쇄 위치에 따른 십이지장 문합술 방법에 대해 2D 일러스트로 표현하였다.",
+            descEn: "2D illustrations of duodenoduodenostomy techniques according to the site of duodenal obstruction.",
+            client: "삼성서울병원 이상훈 교수",
+            clientEn: "Prof. Sanghoon Lee, Samsung Medical Center",
+          },
         {
           id: 195,
           title: "Anatomical Layers of the Temporalis Muscle Fascia in a Postauricular Surgical View",
@@ -648,11 +599,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                       ? project.image.replace('/upload/', '/upload/q_auto,f_auto,w_600,h_450,c_limit/')
                       : project.image
                   }
-                  alt={
-                    isKo
-                      ? `메디컬 일러스트, 의료 일러스트레이션, 의학 그림 | ${project.titleKo} | Gleedoc 포트폴리오`
-                      : `Medical Illustration, Medical Art, Healthcare Visualization | ${project.title} | Gleedoc Portfolio`
-                  }
+                  alt={isKo ? project.titleKo : project.title}
                   className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 bg-white"
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
@@ -728,11 +675,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                         src={selected.images[imageIndex] && selected.images[imageIndex].includes('cloudinary.com')
                           ? selected.images[imageIndex].replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
                           : selected.images[imageIndex]}
-                        alt={
-                          isKo
-                            ? `메디컬 일러스트, 의료 일러스트레이션, 의학 그림 | ${selected.titleKo} ${imageIndex + 1} | Gleedoc 포트폴리오`
-                            : `Medical Illustration, Medical Art, Healthcare Visualization | ${selected.title} ${imageIndex + 1} | Gleedoc Portfolio`
-                        }
+                        alt={`${isKo ? selected.titleKo : selected.title} ${imageIndex + 1}`}
                         watermarkText="© Gleedoc Studio"
                         className="object-contain w-full h-full"
                         style={{objectFit:'contain'}}
@@ -781,11 +724,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                       src={selected.image && selected.image.includes('cloudinary.com')
                         ? selected.image.replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
                         : selected.image}
-                      alt={
-                        isKo
-                          ? `메디컬 일러스트, 의료 일러스트레이션, 의학 그림 | ${selected.titleKo} | Gleedoc 포트폴리오`
-                          : `Medical Illustration, Medical Art, Healthcare Visualization | ${selected.title} | Gleedoc Portfolio`
-                      }
+                      alt={isKo ? selected.titleKo : selected.title}
                       watermarkText="© Gleedoc Studio"
                       className="object-contain w-full h-full max-w-full max-h-full min-w-0 min-h-0"
                       style={{objectFit:'contain',width:'100%',height:'100%',maxWidth:'100%',maxHeight:'100%'}}

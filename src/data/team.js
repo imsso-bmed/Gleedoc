@@ -202,8 +202,8 @@ export const alumniIllustrators = [
     nameKo: '한철희',
     role: 'Medical Illustrator',
     roleKo: '메디컬 일러스트레이터',
-    image: '/images/team/artist-alumni-4.jpg',
-    website: '',
+    image: 'https://res.cloudinary.com/dmktvk7fw/image/upload/v1769773567/profile_cheolheehan_xn1asj.jpg',
+    website: 'https://teammedicalpolygon.com/',
     experience: ['Medical Illustration'],
     projectIds: []
   }
