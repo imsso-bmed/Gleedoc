@@ -14,37 +14,6 @@ export default function ProjectSlider() {
 
   // 매번 렌더링마다 랜덤하게 섞인 이미지 배열 생성
   const images = useMemo(() => shuffle(projects.map((p) => p.image)), []);
-  const sliderRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  // 모바일 터치 드래그 핸들러
-
-  const handleTouchStart = (e) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX); // 터치 시작 위치만 저장
-    setScrollLeft(sliderRef.current?.scrollLeft || 0); // 터치 시작 시점의 스크롤 위치 저장
-    // marquee 애니메이션 일시정지
-    if (sliderRef.current) {
-      sliderRef.current.classList.remove('animate-marquee');
-    }
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging || !sliderRef.current) return;
-    const x = e.touches[0].pageX;
-    const walk = x - startX; // 현재 위치 - 시작 위치
-    sliderRef.current.scrollLeft = scrollLeft - walk; // 기존 스크롤 위치에서 이동량만큼 더함
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-    // marquee 애니메이션 재시작 (모바일에서 자동 재시작은 UX에 따라 조정 가능)
-    if (sliderRef.current) {
-      sliderRef.current.classList.add('animate-marquee');
-    }
-  };
 
   return (
     <section className="py-12 bg-white overflow-hidden cursor-scale">
@@ -68,12 +37,7 @@ export default function ProjectSlider() {
 
       <div className="marquee-group w-full overflow-hidden">
         <div
-          ref={sliderRef}
-          className="flex gap-2 md:gap-8 animate-marquee w-full md:w-max touch-pan-x"
-          style={{ touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', overflowX: 'auto' }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          className="flex gap-2 md:gap-8 animate-marquee w-full md:w-max"
         >
           {[...images, ...images, ...images, ...images].map((src, i) => (
             <div
