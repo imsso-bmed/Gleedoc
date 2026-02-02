@@ -23,7 +23,7 @@ export default function ProjectSlider() {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 15s linear infinite;
+          animation: marquee 10s linear infinite;
         }
         @media (min-width: 768px) {
           .animate-marquee {
