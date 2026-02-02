@@ -51,18 +51,14 @@ export default function ProjectSlider() {
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-100% / 4)); }
+          100% { transform: translateX(-25%); }
         }
         .animate-marquee {
-          animation: marquee 20s linear infinite;
+          animation: marquee 15s linear infinite;
         }
         @media (min-width: 768px) {
-          @keyframes marquee-desktop {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-100% / 4)); }
-          }
           .animate-marquee {
-            animation: marquee-desktop 200s linear infinite !important;
+            animation-duration: 170s !important;
           }
         }
         .marquee-group:hover .animate-marquee {
@@ -73,7 +69,7 @@ export default function ProjectSlider() {
       <div className="marquee-group -mx-6 md:-mx-12 overflow-x-hidden">
         <div
           ref={sliderRef}
-          className="flex gap-2 md:gap-8 animate-marquee px-6 md:px-12 touch-pan-x"
+          className="flex gap-2 md:gap-8 md:animate-marquee px-6 md:px-12 md:w-max touch-pan-x"
           style={{ touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', overflowX: 'auto' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
