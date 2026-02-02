@@ -47,7 +47,7 @@ export default function ProjectSlider() {
   };
 
   return (
-    <section className="py-12 bg-white overflow-x-hidden cursor-scale">
+    <section className="py-12 px-6 md:px-12 bg-white cursor-scale">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -66,10 +66,10 @@ export default function ProjectSlider() {
         }
       `}</style>
 
-      <div className="marquee-group w-full overflow-x-hidden">
+      <div className="marquee-group -mx-6 md:-mx-12 overflow-x-hidden">
         <div
           ref={sliderRef}
-          className="flex gap-2 md:gap-8 animate-marquee w-full md:w-max touch-pan-x"
+          className="flex gap-2 md:gap-8 animate-marquee px-6 md:px-12 md:w-max touch-pan-x"
           style={{ touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', overflowX: 'auto' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -79,7 +79,7 @@ export default function ProjectSlider() {
             <div
               key={i}
               className={
-                `relative flex-shrink-0 w-[90vw] h-[90vw] max-w-[400px] max-h-[400px] md:w-[400px] md:h-[400px] overflow-hidden transition-all duration-500 hover:opacity-90 ` +
+                `relative flex-shrink-0 w-[calc(100vw-3rem)] h-[calc(100vw-3rem)] max-w-[400px] max-h-[400px] md:w-[400px] md:h-[400px] overflow-hidden transition-all duration-500 hover:opacity-90 ` +
                 (i % 3 === 0 ? 'rounded-tl-[100px]' : '') +
                 (i % 3 === 1 ? 'rounded-tr-[100px] rounded-bl-[40px]' : '') +
                 (i % 3 === 2 ? 'rounded-[40px]' : '')
