@@ -58,7 +58,7 @@ export default function ProjectSlider() {
         }
         @media (min-width: 768px) {
           .animate-marquee {
-            animation-duration: 170s !important;
+            animation-duration: 70s !important;
           }
         }
         .marquee-group:hover .animate-marquee {
