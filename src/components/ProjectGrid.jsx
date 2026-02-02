@@ -5,16 +5,21 @@ import { ceo, medicalIllustrators as artists, alumniIllustrators } from '../data
 
 function WatermarkedImage({ src, alt, watermarkText }) {
   const canvasRef = useRef(null);
+  const imgRef = useRef(null);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isWatermarked, setIsWatermarked] = useState(false);
 
   useEffect(() => {
+    if (!src) return;
+    
     const img = new Image();
     img.crossOrigin = "anonymous";
+    imgRef.current = img;
+    
     img.onload = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
-      // 부모 크기에 맞게 캔버스 크기 조정, 부모가 0x0이면 원본 이미지 크기로 fallback
       const parent = canvas.parentElement;
       let maxW = img.width, maxH = img.height;
       if (parent) {
@@ -31,7 +36,6 @@ function WatermarkedImage({ src, alt, watermarkText }) {
       ctx.clearRect(0, 0, maxW, maxH);
       ctx.drawImage(img, 0, 0, maxW, maxH);
 
-      // 워터마크 폰트 크기 (이미지 너비의 8% 또는 최소 24px)
       const fontSize = Math.max(Math.floor(maxW * 0.08), 24);
       ctx.font = `bold ${fontSize}px Arial`;
       ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
@@ -42,18 +46,30 @@ function WatermarkedImage({ src, alt, watermarkText }) {
       const textY = maxH / 2;
       ctx.strokeText(watermarkText, textX, textY);
       ctx.fillText(watermarkText, textX, textY);
+      
+      setIsWatermarked(true);
       setImageLoaded(true);
     };
     img.onerror = () => setImageLoaded(true);
     img.src = src;
+    
+    return () => {
+      img.onload = null;
+      img.onerror = null;
+    };
   }, [src, watermarkText]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="object-contain w-full h-full max-w-full max-h-full"
-      style={{ display: imageLoaded ? 'block' : 'none' }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className="object-contain w-full h-full max-w-full max-h-full"
+        style={{ display: isWatermarked ? 'block' : 'none' }}
+      />
+      {!isWatermarked && (
+        <div className="absolute inset-0 bg-neutral-200 animate-pulse" />
+      )}
+    </>
   );
 }
 
@@ -408,10 +424,25 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
   // 이미지 해상도 최적화 함수
   const getOptimizedImageUrl = (url, width = 1200) => {
     if (!url || !url.includes('cloudinary.com')) return url;
-    // Device Pixel Ratio 고려
+    
+    // 모바일/데스크톱 구분
+    const isMobile = window.innerWidth < 768;
     const dpr = window.devicePixelRatio || 1;
-    const optimizedWidth = Math.ceil(width * dpr);
-    return url.replace('/upload/', `/upload/q_auto,f_auto,w_${optimizedWidth}/`);
+    
+    // 모바일에서는 더 작은 해상도 사용, 데스크톱에서는 고해상도 사용
+    let optimizedWidth = width;
+    if (isMobile) {
+      // 모바일: 화면 너비의 2배 정도 (충분한 품질 + 빠른 로딩)
+      optimizedWidth = Math.ceil(window.innerWidth * 2 * dpr);
+      // 최대값: 1200px (모바일에서는 불필요)
+      optimizedWidth = Math.min(optimizedWidth, 1200);
+    } else {
+      // 데스크톱: DPR 고려한 고해상도
+      optimizedWidth = Math.ceil(width * dpr);
+    }
+    
+    // Cloudinary 최적화: 더 적극적인 압축
+    return url.replace('/upload/', `/upload/q_85,f_auto,w_${optimizedWidth}/`);
   };
 
   // 모달에서 키보드 좌우 화살표로 이미지 넘기기
@@ -681,7 +712,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                   ) : selected.images && selected.images.length > 0 ? (
                     <div className="relative flex items-center justify-center w-full h-full">
                       <WatermarkedImage
-                        src={selected.images[imageIndex] ? getOptimizedImageUrl(selected.images[imageIndex], 2000) : ''}
+                        src={selected.images[imageIndex] ? getOptimizedImageUrl(selected.images[imageIndex], 1600) : ''}
                         alt={`${isKo ? selected.titleKo : selected.title} ${imageIndex + 1}`}
                         watermarkText="© Gleedoc Studio"
                         className="object-contain w-full h-full"
@@ -728,7 +759,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                     </div>
                   ) : (
                     <WatermarkedImage
-                      src={selected.image ? getOptimizedImageUrl(selected.image, 2000) : ''}
+                      src={selected.image ? getOptimizedImageUrl(selected.image, 1600) : ''}
                       alt={isKo ? selected.titleKo : selected.title}
                       watermarkText="© Gleedoc Studio"
                       className="object-contain w-full h-full max-w-full max-h-full min-w-0 min-h-0"
