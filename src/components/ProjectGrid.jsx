@@ -405,6 +405,15 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
   const [activeArtist, setActiveArtist] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
 
+  // 이미지 해상도 최적화 함수
+  const getOptimizedImageUrl = (url, width = 1200) => {
+    if (!url || !url.includes('cloudinary.com')) return url;
+    // Device Pixel Ratio 고려
+    const dpr = window.devicePixelRatio || 1;
+    const optimizedWidth = Math.ceil(width * dpr);
+    return url.replace('/upload/', `/upload/q_auto,f_auto,w_${optimizedWidth}/`);
+  };
+
   // 모달에서 키보드 좌우 화살표로 이미지 넘기기
   useEffect(() => {
     if (!selected || !(selected.images && selected.images.length > 1)) return;
@@ -672,9 +681,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                   ) : selected.images && selected.images.length > 0 ? (
                     <div className="relative flex items-center justify-center w-full h-full">
                       <WatermarkedImage
-                        src={selected.images[imageIndex] && selected.images[imageIndex].includes('cloudinary.com')
-                          ? selected.images[imageIndex].replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
-                          : selected.images[imageIndex]}
+                        src={selected.images[imageIndex] ? getOptimizedImageUrl(selected.images[imageIndex], 2000) : ''}
                         alt={`${isKo ? selected.titleKo : selected.title} ${imageIndex + 1}`}
                         watermarkText="© Gleedoc Studio"
                         className="object-contain w-full h-full"
@@ -721,9 +728,7 @@ export default function ProjectGrid({ lang, artistFilter = null }) {
                     </div>
                   ) : (
                     <WatermarkedImage
-                      src={selected.image && selected.image.includes('cloudinary.com')
-                        ? selected.image.replace('/upload/', '/upload/q_auto,f_auto,w_1200/')
-                        : selected.image}
+                      src={selected.image ? getOptimizedImageUrl(selected.image, 2000) : ''}
                       alt={isKo ? selected.titleKo : selected.title}
                       watermarkText="© Gleedoc Studio"
                       className="object-contain w-full h-full max-w-full max-h-full min-w-0 min-h-0"
