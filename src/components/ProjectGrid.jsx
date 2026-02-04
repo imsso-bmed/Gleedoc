@@ -178,6 +178,25 @@ export const projects = [
                           doi: "https://doi.org/10.1186/s12885-021-08744-1",
                         },
                       {
+                        id: 10,
+                        title: "Pediatric Congenital Heart Surgery",
+                        titleKo: "소아 심장기형 수술",
+                        category: "Surgical Illustration",
+                        categoryKo: "수술 일러스트",
+                        tags: ["surgical-illustration"],
+                        artists: ["miseung-kim"],
+                        year: "2021.03",
+                        image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184227/10_ihalml.jpg",
+                        images: [
+                          "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184227/10_ihalml.jpg"
+                        ],
+                        video: null,
+                        descKo: "소아 심장기형 수술 일러스트.",
+                        descEn: "Surgical illustration of pediatric congenital heart surgery.",
+                        client: "부산대 흉부외과",
+                        clientEn: "Pusan National University Thoracic Surgery",
+                      },
+                      {
                         id: 20,
                         title: "Aortic Surgery",
                         titleKo: "대동맥수술",
@@ -215,6 +234,25 @@ export const projects = [
                       client: null,
                       clientEn: null,
                     },
+                  {
+                    id: 177,
+                    title: "Dr. DanGam's Liver Transplantation Comic Book Cover",
+                    titleKo: "닥터 단감의 간이식만화 표지 일러스트",
+                    category: "Book Cover Illustration",
+                    categoryKo: "Book Cover Illustration",
+                    tags: ["book-cover"],
+                    artists: ["jinsoo-rhu", "soyoung-lim"],
+                    year: "2022.07",
+                    image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185000/177_l2ih98.jpg",
+                    images: [
+                      "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185000/177_l2ih98.jpg"
+                    ],
+                    video: null,
+                    descKo: "닥터 단감의 간이식만화 표지 일러스트",
+                    descEn: "Dr. DanGam's Liver Transplantation Comic Book Cover Illustration",
+                    client: null,
+                    clientEn: null,
+                  },
                   {
                     id: 178,
                     title: "Hanyang University Surgery Logo Design",
@@ -276,6 +314,26 @@ export const projects = [
                 client: "한양대학교 김병식 교수",
                 clientEn: "Prof. Byung Sik Kim, Hanyang University",
               },
+            {
+              id: 166,
+              title: "LDLT Donor OR figure",
+              titleKo: "간이식 기증자 수술 figure",
+              category: ["Surgical Illustration", "Figure", "Journal Cover"],
+              categoryKo: ["수술 일러스트", "Figure", "Journal Cover"],
+              tags: ["surgical-illustration", "figure", "journal-cover"],
+              artists: ["jinsoo-rhu", "soyoung-lim"],
+              year: "2022.08",
+              image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184618/166-1_qz6g7i.jpg",
+              images: [
+                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184618/166-1_qz6g7i.jpg",
+                "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770184618/166-2_lofpqc.jpg"
+              ],
+              video: null,
+              descKo: "Liver Transplantation 2022 Journal Cover",
+              descEn: "Liver Transplantation 2022 Journal Cover",
+              client: null,
+              clientEn: null,
+            },
             {
               id: 191,
               title: "Infiltrative Lesions of the Thyroid: Benign vs. Malignant",
@@ -353,6 +411,28 @@ export const projects = [
         clientEn: "Yongin Severance Thoracic Surgery, Prof. Wanki Kim",
       },
     {
+      id: 113,
+      title: "Rectal Prolapse",
+      titleKo: "항문직장질환 수술 일러스트",
+      category: "Surgical Illustration",
+      categoryKo: "수술 일러스트",
+      tags: ["surgical-illustration"],
+      artists: ["jinsoo-rhu"],
+      year: "2020.01",
+      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185303/113-1_ydbwvw.png",
+      images: [
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185303/113-1_ydbwvw.png",
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185303/113-2_mzug9p.png",
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185301/113-3_sjxdr8.png"
+      ],
+      video: null,
+      descEn: "Surgical illustration of rectal prolapse for Seoul Songdo Hospital.",
+      descKo: "서울송도병원 의뢰 항문직장질환 수술 일러스트.",
+      client: "서울송도병원",
+      clientEn: "Seoul Songdo Hospital",
+    },
+      
+    {
       id: 123,
       title: "L-RPS",
       titleKo: "L-RPS",
@@ -372,6 +452,27 @@ export const projects = [
       descKo: "삼성서울병원 의뢰 Figure 일러스트.",
       client: "삼성서울병원",
       clientEn: "Samsung Medical Center",
+    },
+    {
+      id: 125,
+      title: "Mesorectum",
+      titleKo: "직장간막",
+      category: ["Surgical Illustration", "Figure"],
+      categoryKo: ["수술 일러스트", "Figure"],
+      tags: ["surgical-illustration", "figure"],
+      artists: ["jinsoo-rhu"],
+      year: "2020.01",
+      image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185616/125-1_gwo12b.png",
+      images: [
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185616/125-1_gwo12b.png",
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185615/125-2_n42joc.png",
+        "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770185616/125-3_z6amxg.png"
+      ],
+      video: null,
+      descEn: "Surgical illustration of mesorectum for Kyungpook National University.",
+      descKo: "경북대 의뢰 Mesorectum 수술 일러스트.",
+      client: "경북대",
+      clientEn: "Kyungpook National University",
     },
   {
     id: 12,
@@ -410,6 +511,25 @@ export const projects = [
      descKo: "작업기간: 10월 31일 – 12월 16일 (약 1.5개월)",
      client: "분당서울대병원",
      clientEn: "Seoul National University Bundang Hospital",
+   },
+   {
+     id: 181,
+     title: "Double-row Suture Bridge Fixation",
+     titleKo: "Double-row Suture Bridge Fixation을 사용한 치료 사례",
+     category: ["Surgical Illustration", "Figure"],
+     categoryKo: ["수술 일러스트", "Figure"],
+     tags: ["surgical-illustration", "figure"],
+     artists: ["jeongin-choi"],
+     year: "2024.08",
+     image: "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770180873/181_hqpo8h.jpg",
+     images: [
+       "https://res.cloudinary.com/dmktvk7fw/image/upload/v1770180873/181_hqpo8h.jpg"
+     ],
+     video: null,
+     descKo: "1. 골절 형태의 일러스트\n2. 포털을 통한 봉합 앵커 삽입 일러스트\n3. 봉합 앵커를 이용한 최종 고정 일러스트",
+     descEn: "1. Illustration of the Fracture Shape\n2. Illustration of Inserting Suture Anchor through Portal\n3. Illustration of Final Fixation with Suture Anchor",
+     client: "울산대학교병원 정형외과 전영대 조교수",
+     clientEn: "Prof. Young Dae Jeon, Department of Orthopedic Surgery, Ulsan University Hospital",
    },
    
 ];
